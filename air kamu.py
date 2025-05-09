@@ -12,10 +12,10 @@ st.markdown(
     .stApp {
         background-color: #2c3e50;  /* Latar belakang gelap */
         color: #FFFFFF;  /* Warna font utama putih */
-        background-image: url('https://i.pinimg.com/originals/f5/a6/91/f5a69159b16c8726e54817c6ecb7adf9.png');  /* Emoticon air */
+        background-image: url('https://images.unsplash.com/photo-1532007111223-147c8b11ff9c');  /* Gambar latar belakang */
         background-repeat: no-repeat;
-        background-size: 120px;
-        background-position: top left, top right, bottom left, bottom right;
+        background-size: cover;
+        background-position: center;
         background-attachment: fixed;
     }
     .block-container {
