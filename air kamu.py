@@ -167,8 +167,3 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-# Watermark
-st.markdown("""
-    <hr>
-    <p style='text-align: center; font-size: 16px;
-
