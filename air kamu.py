@@ -137,6 +137,23 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
+import random
+
+# Fun Facts Tentang Air
+st.subheader("💧 Fun Fact Hari Ini")
+
+fakta_air = [
+    "Tubuh manusia terdiri dari sekitar 60% air! 💦",
+    "Minum cukup air bisa membantu meningkatkan konsentrasi dan suasana hati. 🧠😊",
+    "Kadang kamu merasa lapar padahal sebenarnya cuma haus! 🥤🍽️",
+    "Air membantu melumasi sendi dan melindungi jaringan tubuh. 🦴",
+    "Minum air putih bisa membantu menjaga kesehatan kulitmu. ✨",
+    "Ginjal menyaring sekitar 50 galon darah setiap hari, dengan bantuan air! 🩸🚰",
+    "Minum air yang cukup dapat membantu mencegah sakit kepala. 😣➡🙂"
+]
+
+st.info(random.choice(fakta_air))
+
 # Watermark
 st.markdown("""
     <hr>
