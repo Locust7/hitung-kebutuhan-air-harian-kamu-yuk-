@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 import random
 
 # Konfigurasi halaman
@@ -6,17 +7,19 @@ st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="cent
 
 # Tambahkan latar belakang bergambar air minum
 st.markdown(
-    """ <style>
+    """
+    <style>
     .stApp {
-    background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
-    background-size: cover;
-    background-attachment: fixed;
+        background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
+        background-size: cover;
+        background-attachment: fixed;
     }
     .block-container {
-    background-color: rgba(255, 255, 255, 0.90);
-    padding: 2rem;
-    border-radius: 15px;
-    } </style>
+        background-color: rgba(255, 255, 255, 0.90);
+        padding: 2rem;
+        border-radius: 15px;
+    }
+    </style>
     """,
     unsafe_allow_html=True
 )
@@ -130,26 +133,15 @@ if submitted:
         ]
         st.info(random.choice(fakta_air))
 
-# Pengetahuan Tentang Air Minum
-st.subheader("🔍 Pengetahuan Tentang Air Minum")
-st.markdown("""
-**Air** adalah kebutuhan dasar bagi setiap makhluk hidup. Berikut adalah beberapa fakta penting tentang air:
-
-- 💧 **Menjaga Hidrasi**: Air membantu menjaga keseimbangan cairan dalam tubuh kita, yang penting untuk fungsi organ tubuh seperti jantung, ginjal, dan otak.
-- 🧑‍⚕️ **Meningkatkan Kinerja Fisik**: Selama aktivitas fisik, tubuh kehilangan air melalui keringat. Minum air yang cukup membantu mencegah dehidrasi dan meningkatkan kinerja fisik.
-- 🧠 **Meningkatkan Konsentrasi dan Fokus**: Kekurangan cairan dapat memengaruhi kemampuan kita untuk fokus dan berpikir jernih. Minum cukup air dapat meningkatkan konsentrasi dan memori jangka pendek.
-- 🛁 **Menjaga Kulit Sehat**: Air membantu menjaga kelembapan kulit dan mengurangi risiko kulit kering dan keriput.
-- 🥤 **Mengatur Suhu Tubuh**: Air berfungsi untuk mengatur suhu tubuh kita melalui keringat, yang sangat penting ketika cuaca panas atau saat beraktivitas fisik.
-- 🌱 **Detoksifikasi**: Air membantu tubuh untuk membuang racun dan limbah melalui urin dan keringat.
-
-### Kenapa Minum Air Itu Penting?
-Setiap organ tubuh kita bergantung pada air. Tanpa air, tubuh tidak dapat berfungsi dengan optimal, bahkan untuk proses dasar seperti pencernaan dan metabolisme. Oleh karena itu, pastikan kamu selalu minum cukup air setiap hari untuk menjaga tubuh tetap sehat dan terhidrasi dengan baik!
-
 # Watermark
 st.markdown("""
-    <hr>
-    <p style='text-align: center; font-size: 16px; color: grey;'>
+    <hr style="border: 1px solid #00BFFF;">
+    <p style="text-align: center; font-size: 16px; color: grey;">
     🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙:<br>
     <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
+    <i>Tim paling segar di antara deadline! 🍹</i>
+    </p>
+    <p style="text-align: center; font-size: 14px; color: grey;">
+    <i>Design &amp; Development oleh Tim Kreatif LPK 7, 2025</i>
     </p>
 """, unsafe_allow_html=True)
