@@ -5,20 +5,58 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang bergambar air minum
+# Tambahkan latar belakang dengan hiasan air
 st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
-        background-size: cover;
-        background-attachment: fixed;
+        background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80'),
+                          url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+        background-size: cover, 100px 100px;
+        background-attachment: fixed, scroll;
+        background-position: center, top left;
+        animation: wave-animation 10s infinite;
     }
+
+    /* Animasi untuk background agar tampak dinamis */
+    @keyframes wave-animation {
+        0% { background-position: center, top left; }
+        50% { background-position: right bottom, top right; }
+        100% { background-position: center, top left; }
+    }
+
     .block-container {
         background-color: rgba(255, 255, 255, 0.90);
         padding: 2rem;
         border-radius: 15px;
     }
+
+    h1 {
+        font-family: 'Arial', sans-serif;
+        color: #00BFFF;
+    }
+
+    p {
+        font-size: 1.2rem;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+    }
+
+    /* Hiasan dan efek tambahan untuk text */
+    .highlight {
+        color: #00BFFF;
+        font-weight: bold;
+    }
+
+    .wave-effect {
+        animation: wave-effect-animation 5s linear infinite;
+    }
+
+    @keyframes wave-effect-animation {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
     </style>
     """,
     unsafe_allow_html=True
@@ -26,7 +64,7 @@ st.markdown(
 
 # Header
 st.markdown("""
-    <h1 style='text-align: center; color: #00BFFF;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
+    <h1 class='wave-effect' style='text-align: center;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
