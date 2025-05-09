@@ -187,6 +187,3 @@ st.markdown("""
     <i>Design &amp; Development oleh Tim Kreatif LPK 7, 2025</i>
     </p>
 """, unsafe_allow_html=True)
-```
-
-Dengan gambar yang lebih sederhana, Anda bisa melihat apakah latar belakang muncul atau tidak. Jika masih tidak muncul, coba verifikasi apakah `stApp` adalah elemen yang benar di dalam layout Streamlit.
