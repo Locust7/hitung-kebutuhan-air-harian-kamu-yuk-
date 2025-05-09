@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import random
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
@@ -58,24 +59,6 @@ with st.form("form_air"):
     ])
 
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
-
-# Checklist Harian Minum Air
-st.subheader("✅ Checklist Minum Air Hari Ini")
-st.markdown("Coba tantang diri kamu minum *minimal* 8 gelas air hari ini! Centang kalau sudah ✅")
-
-gelas_diminum = []
-for i in range(1, 9):
-    gelas = st.checkbox(f"Gelas ke-{i}", key=f"gelas_{i}")
-    gelas_diminum.append(gelas)
-
-jumlah = sum(gelas_diminum)
-if jumlah == 8:
-    st.balloons()
-    st.success("🎉 Hebat! Kamu sudah minum 8 gelas air hari ini!")
-elif jumlah >= 5:
-    st.info(f"👍 Bagus! Sudah {jumlah} gelas, sedikit lagi!")
-else:
-    st.warning(f"💧 Baru {jumlah} gelas hari ini. Yuk minum lagi!")
 
 # Proses perhitungan
 if submitted:
@@ -137,22 +120,18 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-import random
-
-# Fun Facts Tentang Air
-st.subheader("💧 Fun Fact Hari Ini")
-
-fakta_air = [
-    "Tubuh manusia terdiri dari sekitar 60% air! 💦",
-    "Minum cukup air bisa membantu meningkatkan konsentrasi dan suasana hati. 🧠😊",
-    "Kadang kamu merasa lapar padahal sebenarnya cuma haus! 🥤🍽️",
-    "Air membantu melumasi sendi dan melindungi jaringan tubuh. 🦴",
-    "Minum air putih bisa membantu menjaga kesehatan kulitmu. ✨",
-    "Ginjal menyaring sekitar 50 galon darah setiap hari, dengan bantuan air! 🩸🚰",
-    "Minum air yang cukup dapat membantu mencegah sakit kepala. 😣➡🙂"
-]
-
-st.info(random.choice(fakta_air))
+        # Fun Fact tambahan
+        st.subheader("💡 Fun Fact tentang Air & Tubuhmu!")
+        fakta_air = [
+            "🧠 Otak manusia terdiri dari sekitar 75% air!",
+            "💧 Kehilangan hanya 2% cairan tubuh bisa menurunkan fokus dan konsentrasi.",
+            "🧃 Air membantu mengangkut nutrisi dan oksigen ke seluruh tubuh.",
+            "🚽 Minum cukup air membantu ginjal menyaring limbah dengan lebih efektif.",
+            "🔥 Air membantu mengatur suhu tubuh lewat keringat.",
+            "😴 Minum cukup air bisa membantu kualitas tidurmu jadi lebih baik!",
+            "👶 Bayi memiliki persentase air lebih tinggi daripada orang dewasa, hingga 78% dari berat tubuh!"
+        ]
+        st.info(random.choice(fakta_air))
 
 # Watermark
 st.markdown("""
