@@ -2,7 +2,7 @@ import streamlit as st
 import time
 
 # Konfigurasi halaman
-st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
+st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Harian", layout="centered")
 
 # Tambahkan latar belakang bergambar air minum
 st.markdown(
