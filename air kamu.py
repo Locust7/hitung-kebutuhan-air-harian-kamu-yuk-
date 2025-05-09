@@ -131,7 +131,4 @@ st.markdown("""
     🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙:<br>
     <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
     <i>Tim paling segar di antara deadline! 🍹</i>
-    </p>
-""", unsafe_allow_html=True)
-
-""", unsafe_allow_html=True)
+    </p>""", unsafe_allow_html=True)
