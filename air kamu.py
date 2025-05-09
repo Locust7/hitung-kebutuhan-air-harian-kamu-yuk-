@@ -5,13 +5,13 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang berwarna biru dengan emotikon lucu
+# Tambahkan latar belakang dengan warna gelap dan kontras agar font terlihat jelas
 st.markdown(
     """
     <style>
     .stApp {
-        background-color: #87CEFA;
-        color: #FFFFFF;
+        background-color: #003366;  /* Latar belakang biru gelap */
+        color: #FFFFFF;  /* Warna font putih agar lebih jelas */
     }
     .block-container {
         background-color: rgba(255, 255, 255, 0.90);
@@ -19,10 +19,10 @@ st.markdown(
         border-radius: 15px;
     }
     h1, h2, h3, h4 {
-        color: #1E90FF;
+        color: #00BFFF;
     }
     .stButton>button {
-        background-color: #1E90FF;
+        background-color: #00BFFF;
         color: white;
         border-radius: 10px;
     }
