@@ -85,9 +85,6 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Grafik (Placeholder - grafik bisa ditambahkan sesuai kebutuhan dengan matplotlib atau altair)
-        st.subheader("📊 Visualisasi Kebutuhan Air")
-
         # Rekomendasi Menu
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik:")
         st.markdown("""
