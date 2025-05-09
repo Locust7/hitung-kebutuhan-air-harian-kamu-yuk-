@@ -25,7 +25,7 @@ st.markdown(
 )
 
 # Header
-st.markdown("""
+st.markdown("""  
     <h1 style='text-align: center; color: #00BFFF;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
@@ -85,7 +85,7 @@ if submitted:
         st.write(f"- 🔄 Setelah penyesuaian: *{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari*")
 
         # Catatan tambahan
-        st.markdown("""
+        st.markdown("""  
         <div style='background-color:#e6f7ff; padding:10px; border-left:5px solid #00BFFF;'>
             📌 <strong>Catatan:</strong><br>
             Nilai ini merupakan estimasi kebutuhan air harian. Kebutuhan sebenarnya bisa bervariasi tergantung kondisi kesehatan, konsumsi makanan dan minuman lain, serta cuaca harian. Konsultasikan dengan ahli gizi atau tenaga medis untuk kebutuhan spesifik.
@@ -110,7 +110,7 @@ if submitted:
 
         # Tips dari pakar kesehatan
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan")
-        st.markdown("""
+        st.markdown("""  
         <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
             <ul>
                 <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus."</li>
@@ -134,7 +134,7 @@ if submitted:
         st.info(random.choice(fakta_air))
 
 # Watermark
-st.markdown("""
+st.markdown("""  
     <hr style="border: 1px solid #00BFFF;">
     <p style="text-align: center; font-size: 16px; color: grey;">
     🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙:<br>
@@ -146,3 +146,18 @@ st.markdown("""
     </p>
 """, unsafe_allow_html=True)
 
+# Tambahan Fitur Informasi
+st.markdown("## 📚 Informasi Tentang Air dan Hidrasi")
+st.markdown("""
+**Kenapa Air Itu Penting?**  
+Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
+
+**Manfaat Minum Air**:
+1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus.
+2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh.
+3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil.
+4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini.
+
+**Berapa Banyak Air yang Harus Diminum?**
+- Banyak ahli merekomendasikan untuk minum sekitar 8 gelas (sekitar 2 liter) air setiap hari, namun kebutuhan bisa lebih tinggi tergantung pada berbagai faktor seperti iklim, aktivitas fisik, dan usia.
+""")
