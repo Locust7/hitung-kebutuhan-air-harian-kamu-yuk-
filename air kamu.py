@@ -1,22 +1,23 @@
 import streamlit as st
+import time
 
 # Konfigurasi halaman
-st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Harian", layout="centered")
+st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
 # Tambahkan latar belakang bergambar air minum
 st.markdown(
-    f"""
+    """
     <style>
-    .stApp {{
+    .stApp {
         background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
         background-size: cover;
         background-attachment: fixed;
-    }}
-    .block-container {{
+    }
+    .block-container {
         background-color: rgba(255, 255, 255, 0.90);
         padding: 2rem;
         border-radius: 15px;
-    }}
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -24,13 +25,14 @@ st.markdown(
 
 # Header
 st.markdown("""
-    <h1 style='text-align: center; color: #00BFFF;'>💧 Kalkulator Kebutuhan Air Harian</h1>
-    <p style='text-align: center;'>Hitung kebutuhan air harianmu dengan mudah!</p>
+    <h1 style='text-align: center; color: #00BFFF;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
+    <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
 # Penjelasan awal
 st.markdown("""
 Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
+
 - 🎂 *Umur*
 - 🚻 *Jenis kelamin*
 - ⚖ *Berat badan*
@@ -43,20 +45,24 @@ with st.form("form_air"):
     umur = st.number_input("🎂 Umur (tahun)", min_value=0, max_value=120, value=25)
     jenis_kelamin = st.selectbox("🚻 Jenis Kelamin", ["👦 Laki-laki", "👧 Perempuan"])
     berat_badan = st.number_input("⚖ Berat Badan (kg)", min_value=1.0, max_value=200.0, value=60.0)
+
     aktivitas = st.selectbox("🤸 Tingkat Aktivitas Fisik", [
         "Ringan (pekerjaan ringan, sedikit olahraga)",
         "Sedang (olahraga 3–5 kali/minggu)",
         "Berat (olahraga intens atau pekerjaan berat)"
     ])
+
     iklim = st.selectbox("☀ Iklim Tempat Tinggal", [
         "Sedang/Dingin",
         "Panas (tropis, kering, atau sangat lembap)"
     ])
+
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
 # Proses perhitungan
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu..."):
+
         # Dasar
         kebutuhan_dasar_min = 30 * berat_badan / 1000
         kebutuhan_dasar_max = 40 * berat_badan / 1000
@@ -85,6 +91,10 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
+        # Pengingat Minum Air
+        reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
+        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
+
         # Rekomendasi Menu
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik:")
         st.markdown("""
@@ -102,10 +112,9 @@ if submitted:
         st.markdown("""
         <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
             <ul>
-                <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus. Haus adalah tanda tubuh sudah mulai kekurangan cairan."</li>
-                <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Bawalah botol air sendiri ke mana pun kamu pergi. Ini membantu kamu tetap terhidrasi sepanjang hari."</li>
-                <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu! Jika terlalu gelap, itu tandanya kamu perlu minum lebih banyak."</li>
-                <li>👩‍⚕️ <strong>Dr. Minerva Airin</strong>: "Orang dengan penyakit tertentu (seperti ginjal atau jantung) harus berkonsultasi dulu sebelum menaikkan asupan cairan."</li>
+                <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus."</li>
+                <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Selalu bawa botol air ke mana pun kamu pergi."</li>
+                <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu. Urin gelap = kurang minum."</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
