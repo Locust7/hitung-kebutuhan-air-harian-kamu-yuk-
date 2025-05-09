@@ -1,46 +1,24 @@
 import streamlit as st
+import time
 import random
-import requests
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang berwarna cerah dengan pola
+# Tambahkan latar belakang bergambar air minum
 st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://images.unsplash.com/photo-1565222401-bba121addb4e?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg2NXwwfDF8c2VhY2h8MHx8Y2Fsb3JpZXx8ZW58MHx8fHwxNjk2NzE5MTM&ixlib=rb-1.2.1&q=80&w=1080'),
-                          url('https://www.transparenttextures.com/patterns/wood-pattern.png');
-        background-size: cover, 100px 100px;
-        background-attachment: fixed, scroll;
-        background-position: center, top left;
-        background-color: #F1F1F1;
+        background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
+        background-size: cover;
+        background-attachment: fixed;
     }
-
     .block-container {
         background-color: rgba(255, 255, 255, 0.90);
         padding: 2rem;
         border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
-    h1 {
-        font-family: 'Arial', sans-serif;
-        color: #00BFFF;
-    }
-
-    p {
-        font-size: 1.2rem;
-        font-family: 'Arial', sans-serif;
-        color: #333;
-    }
-
-    .highlight {
-        color: #00BFFF;
-        font-weight: bold;
-    }
-
     </style>
     """,
     unsafe_allow_html=True
@@ -48,7 +26,7 @@ st.markdown(
 
 # Header
 st.markdown("""
-    <h1 style='text-align: center;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
+    <h1 style='text-align: center; color: #00BFFF;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
@@ -114,27 +92,57 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Tips Hidrasi
-        st.subheader("🌞 Tips Hidrasi di Cuaca Panas:")
+        # Pengingat Minum Air
+        reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
+        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
+
+        # Rekomendasi Menu
+        st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik:")
         st.markdown("""
-        - 💦 Perbanyak minum air dan konsumsi makanan yang mengandung banyak air.
-        - 🥒 Konsumsi sayuran hijau dan buah-buahan segar.
-        - 🧴 Gunakan tabir surya dan hindari paparan sinar matahari langsung terlalu lama.
+        - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
+        - 🥗 **Sayuran Hijau**: Selada, timun, dan bayam juga membantu tubuh tetap terhidrasi.
+        - 🧃 **Minuman Sehat**: Teh herbal atau infused water dengan irisan lemon atau mentimun.
+        - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
         """)
 
-        # Statistik Hidrasi
-        hydration_stat = random.choice(["👍 Kamu berhasil minum cukup air hari ini!", "⚠️ Ayo, jangan lupa minum lebih banyak air!"])
+        # Tips lucu
+        st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
 
-        st.subheader("📊 Statistik Hidrasi")
-        st.write(hydration_stat)
-        
-        # Game Mini: Hidrasi Skor
-        hydration_game = st.button("🎮 Tantangan Hidrasi: Coba dapatkan skor tinggi dengan hidrasi yang baik!")
-        if hydration_game:
-            st.write("Skor Anda: 10/10! 👍 Terus jaga hidrasi tubuhmu!")
+        # Tips dari pakar kesehatan
+        st.subheader("🩺 Tips Profesional dari Pakar Kesehatan")
+        st.markdown("""
+        <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
+            <ul>
+                <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus."</li>
+                <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Selalu bawa botol air ke mana pun kamu pergi."</li>
+                <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu. Urin gelap = kurang minum."</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
 
-        # Pencapaian Sosial
-        social_share = st.button("📢 Bagikan Pencapaianmu di Media Sosial!")
-        if social_share:
-            st.write("🎉 Berhasil! Bagikan pencapaian hidrasi kamu sekarang!")
+        # Fun Fact tambahan
+        st.subheader("💡 Fun Fact tentang Air & Tubuhmu!")
+        fakta_air = [
+            "🧠 Otak manusia terdiri dari sekitar 75% air!",
+            "💧 Kehilangan hanya 2% cairan tubuh bisa menurunkan fokus dan konsentrasi.",
+            "🧃 Air membantu mengangkut nutrisi dan oksigen ke seluruh tubuh.",
+            "🚽 Minum cukup air membantu ginjal menyaring limbah dengan lebih efektif.",
+            "🔥 Air membantu mengatur suhu tubuh lewat keringat.",
+            "😴 Minum cukup air bisa membantu kualitas tidurmu jadi lebih baik!",
+            "👶 Bayi memiliki persentase air lebih tinggi daripada orang dewasa, hingga 78% dari berat tubuh!"
+        ]
+        st.info(random.choice(fakta_air))
+
+# Watermark
+st.markdown("""
+    <hr style="border: 1px solid #00BFFF;">
+    <p style="text-align: center; font-size: 16px; color: grey;">
+    🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙:<br>
+    <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
+    <i>Tim paling segar di antara deadline! 🍹</i>
+    </p>
+    <p style="text-align: center; font-size: 14px; color: grey;">
+    <i>Design &amp; Development oleh Tim Kreatif LPK 7, 2025</i>
+    </p>
+""", unsafe_allow_html=True)
 
