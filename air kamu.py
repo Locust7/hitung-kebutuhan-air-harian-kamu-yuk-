@@ -151,8 +151,5 @@ st.markdown("""
     <p style='text-align: center; font-size: 16px; color: grey;'>
     🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙:<br>
     <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
-    <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
 """, unsafe_allow_html=True)
-
-
