@@ -25,7 +25,7 @@ st.markdown(
 
 # Header
 st.markdown("""
-    <h1 style='text-align: center; color: #00BFFF;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
+    <h1 style='text-align: center; color: #00BFFF;'>💧🐧 Kalkulator Kebutuhan Air Harian 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
@@ -46,16 +46,19 @@ with st.form("form_air"):
     berat_badan = st.number_input("⚖ Berat Badan (kg)", min_value=1.0, max_value=200.0, value=60.0)
 
     aktivitas = st.selectbox("🤸 Tingkat Aktivitas Fisik", [
-        "Ringan (pekerjaan ringan, sedikit olahraga)",
-        "Sedang (olahraga 3–5 kali/minggu)",
-        "Berat (olahraga intens atau pekerjaan berat)"
+        "Ringan (pekerjaan ringan, kuliah cuma teori)",
+        "Sedang (lumayan banyak laprak)",
+        "Berat (pekerjaan berat, banyak laprak dan praktik)"
     ])
 
     iklim = st.selectbox("☀ Iklim Tempat Tinggal", [
         "Sedang/Dingin",
         "Panas (tropis, kering, atau sangat lembap)"
     ])
-
+# Kuis hidrasi
+ with st.subheader("💡 Kuis Hidrasi")
+        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup?", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜️"])
+        if kuis_answer == "Mencegah dehidrasi 🏜️":
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
 # Proses perhitungan
@@ -112,9 +115,6 @@ if submitted:
             st.success(f"🔥 Kamu sudah minum air selama {streak} hari berturut-turut! Keep going! 🌟💧")
 
         # Kuis Hidrasi
-        st.subheader("💡 Kuis Hidrasi")
-        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup?", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜️"])
-        if kuis_answer == "Mencegah dehidrasi 🏜️":
             st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu!")
 
         # Tips lucu
