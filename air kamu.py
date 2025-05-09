@@ -115,6 +115,19 @@ if submitted:
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
 
+        # Fitur Informasi tentang air dan hidrasi
+        st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
+        st.markdown("""
+        **Kenapa Air Itu Penting?**  
+        Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
+
+        **Manfaat Minum Air**:
+        1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus. 🧠
+        2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh. 💪
+        3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil. 🌡️
+        4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini. 🤕
+        """)
+
         # Tips dari pakar kesehatan
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan: 💼")
         st.markdown("""  
@@ -152,16 +165,3 @@ st.markdown("""
     <i>Design &amp; Development oleh Tim Kreatif LPK 7, 2025</i>
     </p>
 """, unsafe_allow_html=True)
-
-# Tambahan Fitur Informasi
-st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
-st.markdown("""
-**Kenapa Air Itu Penting?**  
-Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
-
-**Manfaat Minum Air**:
-1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus. 🧠
-2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh. 💪
-3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil. 🌡️
-4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini. 🤕
-""")
