@@ -1,34 +1,27 @@
 import streamlit as st
-import time
 import random
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang dengan hiasan air
+# Tambahkan latar belakang berwarna cerah dengan pola
 st.markdown(
     """
     <style>
     .stApp {
-        background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80'),
-                          url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+        background-image: url('https://images.unsplash.com/photo-1565222401-bba121addb4e?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg2NXwwfDF8c2VhY2h8MHx8Y2Fsb3JpZXx8ZW58MHx8fHwxNjk2NzE5MTM&ixlib=rb-1.2.1&q=80&w=1080'),
+                          url('https://www.transparenttextures.com/patterns/wood-pattern.png');
         background-size: cover, 100px 100px;
         background-attachment: fixed, scroll;
         background-position: center, top left;
-        animation: wave-animation 10s infinite;
-    }
-
-    /* Animasi untuk background agar tampak dinamis */
-    @keyframes wave-animation {
-        0% { background-position: center, top left; }
-        50% { background-position: right bottom, top right; }
-        100% { background-position: center, top left; }
+        background-color: #F1F1F1;
     }
 
     .block-container {
         background-color: rgba(255, 255, 255, 0.90);
         padding: 2rem;
         border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
@@ -42,19 +35,10 @@ st.markdown(
         color: #333;
     }
 
-    /* Hiasan dan efek tambahan untuk text */
+    /* Hiasan untuk text */
     .highlight {
         color: #00BFFF;
         font-weight: bold;
-    }
-
-    .wave-effect {
-        animation: wave-effect-animation 5s linear infinite;
-    }
-
-    @keyframes wave-effect-animation {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
     }
 
     </style>
@@ -64,7 +48,7 @@ st.markdown(
 
 # Header
 st.markdown("""
-    <h1 class='wave-effect' style='text-align: center;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
+    <h1 style='text-align: center;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
@@ -183,3 +167,4 @@ st.markdown("""
     <i>Design &amp; Development oleh Tim Kreatif LPK 7, 2025</i>
     </p>
 """, unsafe_allow_html=True)
+
