@@ -61,6 +61,7 @@ with st.form("form_air"):
 # Proses perhitungan
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu..."):
+       
         # Dasar
         kebutuhan_dasar_min = 30 * berat_badan / 1000
         kebutuhan_dasar_max = 40 * berat_badan / 1000
@@ -89,7 +90,7 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Grafik placeholder
+        # Grafik (Placeholder - grafik bisa ditambahkan sesuai kebutuhan dengan matplotlib atau altair)
         st.subheader("📊 Visualisasi Kebutuhan Air")
 
         # Pengingat Minum Air
@@ -103,14 +104,18 @@ if submitted:
         - 🥗 **Sayuran Hijau**: Selada, timun, dan bayam juga membantu tubuh tetap terhidrasi.
         - 🧃 **Minuman Sehat**: Teh herbal atau infused water dengan irisan lemon atau mentimun.
         - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
-        - 🍜 **Makanan Berkuah**: Sup ayam atau sayur asem bisa jadi tambahan cairan!
         """)
 
-        # Fitur pengingat jadwal minum
-        st.subheader("📅 Jadwal Minum Air Harian 🕒")
-        jadwal = ["07:00 - Setelah bangun tidur ☀️", "09:00 - Setelah sarapan 🥐", "12:00 - Sebelum makan siang 🍛", "15:00 - Sore hari 🌤️", "18:00 - Sebelum makan malam 🍽️", "21:00 - Sebelum tidur 🛏️"]
-        for waktu in jadwal:
-            st.markdown(f"✅ {waktu}")
+        # Streak Minum Air (Menampilkan streak jika pengguna sudah melakukan beberapa kali)
+        streak = st.number_input("🎉 Berapa banyak hari kamu sudah konsisten minum air?", min_value=0, value=0)
+        if streak > 0:
+            st.success(f"🔥 Kamu sudah minum air selama {streak} hari berturut-turut! Keep going! 🌟💧")
+
+        # Kuis Hidrasi
+        st.subheader("💡 Kuis Hidrasi")
+        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup?", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜️"])
+        if kuis_answer == "Mencegah dehidrasi 🏜️":
+            st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu!")
 
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
@@ -132,7 +137,7 @@ if submitted:
 st.markdown("""
     <hr>
     <p style='text-align: center; font-size: 16px; color: grey;'>
-    🐬 Dibuat oleh <strong>LPK 7</strong> LPK 7 💙:<br>
+    🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙:<br>
     <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
