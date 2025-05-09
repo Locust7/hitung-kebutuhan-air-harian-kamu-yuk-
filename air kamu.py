@@ -1,10 +1,13 @@
 import streamlit as st
 import time
+import datetime
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang bergambar air minum
+# Tambahkan latar belakang
 st.markdown(
     f"""
     <style>
@@ -29,16 +32,6 @@ st.markdown("""
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
-# Penjelasan awal
-st.markdown("""
-Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
-- 🎂 *Umur*
-- 🚻 *Jenis kelamin*
-- ⚖ *Berat badan*
-- 🤸 *Aktivitas fisik*
-- ☀ *Iklim tempat tinggal*
-""")
-
 # Form input
 with st.form("form_air"):
     umur = st.number_input("🎂 Umur (tahun)", min_value=0, max_value=120, value=25)
@@ -58,10 +51,9 @@ with st.form("form_air"):
 
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
-# Proses perhitungan
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu..."):
-       
+
         # Dasar
         kebutuhan_dasar_min = 30 * berat_badan / 1000
         kebutuhan_dasar_max = 40 * berat_badan / 1000
@@ -76,64 +68,63 @@ if submitted:
         kebutuhan_total_min = kebutuhan_dasar_min * faktor_aktivitas * faktor_iklim
         kebutuhan_total_max = kebutuhan_dasar_max * faktor_aktivitas * faktor_iklim
 
-        # Output
         st.success("🎉 Perhitungan selesai!")
         st.subheader("💡 Hasil Perkiraan Kamu:")
         st.write(f"- 💧 Kebutuhan dasar: *{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari*")
         st.write(f"- 🔄 Setelah penyesuaian: *{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari*")
 
-        # Catatan tambahan
-        st.markdown("""
-        <div style='background-color:#e6f7ff; padding:10px; border-left:5px solid #00BFFF;'>
-            📌 <strong>Catatan:</strong><br>
-            Nilai ini merupakan estimasi kebutuhan air harian. Kebutuhan sebenarnya bisa bervariasi tergantung kondisi kesehatan, konsumsi makanan dan minuman lain, serta cuaca harian. Konsultasikan dengan ahli gizi atau tenaga medis untuk kebutuhan spesifik.
-        </div>
-        """, unsafe_allow_html=True)
+        # Grafik visualisasi
+        st.subheader("📊 Visualisasi Kebutuhan Air Berdasarkan Aktivitas")
+        aktivitas_labels = ['Ringan', 'Sedang', 'Berat']
+        faktor_aktivitas_list = [1.1, 1.25, 1.35]
+        kebutuhan_min = [kebutuhan_dasar_min * f * faktor_iklim for f in faktor_aktivitas_list]
+        kebutuhan_max = [kebutuhan_dasar_max * f * faktor_iklim for f in faktor_aktivitas_list]
 
-        # Grafik (Placeholder - grafik bisa ditambahkan sesuai kebutuhan dengan matplotlib atau altair)
-        st.subheader("📊 Visualisasi Kebutuhan Air")
+        x = np.arange(len(aktivitas_labels))
+        width = 0.35
+        fig, ax = plt.subplots()
+        ax.bar(x - width/2, kebutuhan_min, width, label='Min (L)')
+        ax.bar(x + width/2, kebutuhan_max, width, label='Max (L)')
+        ax.set_ylabel('Liter per Hari')
+        ax.set_title('Kebutuhan Air vs Aktivitas')
+        ax.set_xticks(x)
+        ax.set_xticklabels(aktivitas_labels)
+        ax.legend()
+        ax.grid(axis='y', linestyle='--', alpha=0.6)
+        st.pyplot(fig)
 
-        # Pengingat Minum Air
-        reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
-        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
+        # 🎯 Tujuan harian & progress
+        st.subheader("🎯 Target Hidrasi Hari Ini")
+        target = st.slider("Tentukan target harian kamu (L)", min_value=1.0, max_value=5.0, value=2.0, step=0.1)
+        minum = st.number_input("Berapa liter yang sudah kamu minum hari ini?", min_value=0.0, max_value=5.0, step=0.1)
+        progress = min(minum / target, 1.0)
+        st.progress(progress, text=f"{minum:.1f} L dari {target:.1f} L")
 
-        # Rekomendasi Menu
-        st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik:")
-        st.markdown("""
-        - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
-        - 🥗 **Sayuran Hijau**: Selada, timun, dan bayam juga membantu tubuh tetap terhidrasi.
-        - 🧃 **Minuman Sehat**: Teh herbal atau infused water dengan irisan lemon atau mentimun.
-        - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
-        """)
+        # 🔔 Pengingat teks sederhana
+        st.subheader("🔔 Simulasi Pengingat Minum Air")
+        interval = st.selectbox("Setel interval pengingat", ["Setiap 30 menit", "Setiap 1 jam", "Setiap 2 jam"])
+        st.info(f"📌 Ingat ya! Minum segelas air {interval.lower()}! Kamu bisa setel pengingat di HP juga! 📱💧")
 
-        # Streak Minum Air (Menampilkan streak jika pengguna sudah melakukan beberapa kali)
-        streak = st.number_input("🎉 Berapa banyak hari kamu sudah konsisten minum air?", min_value=0, value=0)
-        if streak > 0:
-            st.success(f"🔥 Kamu sudah minum air selama {streak} hari berturut-turut! Keep going! 🌟💧")
+        # 🗓️ Kalender catatan hidrasi
+        st.subheader("🗓️ Catatan Hidrasi Harian")
+        tanggal = st.date_input("Tanggal hari ini", datetime.date.today())
+        catatan = st.text_input("Catatan hidrasi (opsional)", "")
+        if catatan:
+            st.success(f"📘 Catatan tersimpan untuk {tanggal}: {catatan}")
 
-        # Kuis Hidrasi
-        st.subheader("💡 Kuis Hidrasi")
-        kuis_answer = st.selectbox("Apa manfaat utama dari hidrasi yang cukup?", ["Mengatur suhu tubuh 🧊", "Meningkatkan konsentrasi 🧠", "Mencegah dehidrasi 🏜️"])
-        if kuis_answer == "Mencegah dehidrasi 🏜️":
-            st.success("🎉 Jawaban benar! Hidrasi membantu mencegah dehidrasi yang bisa mengganggu kesehatan kamu!")
-
-        # Tips lucu
-        st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
-
-        # Tips dari pakar kesehatan
+        # Tips
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan")
         st.markdown("""
         <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
             <ul>
-                <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus. Haus adalah tanda tubuh sudah mulai kekurangan cairan."</li>
-                <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Bawalah botol air sendiri ke mana pun kamu pergi. Ini membantu kamu tetap terhidrasi sepanjang hari."</li>
-                <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu! Jika terlalu gelap, itu tandanya kamu perlu minum lebih banyak."</li>
-                <li>👩‍⚕️ <strong>Dr. Minerva Airin</strong>: "Orang dengan penyakit tertentu (seperti ginjal atau jantung) harus berkonsultasi dulu sebelum menaikkan asupan cairan."</li>
+                <li>👩‍⚕️ <b>Dr. Hydrina Segar</b>: "Minumlah sebelum haus."</li>
+                <li>🧑‍⚕️ <b>Dr. Aqua Vita</b>: "Selalu bawa botol air!"</li>
+                <li>👨‍⚕️ <b>Dr. Sehat Jernih</b>: "Warna urin = indikator hidrasi."</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
 
-# Watermark stylist
+# Watermark
 st.markdown("""
     <hr>
     <p style='text-align: center; font-size: 16px; color: grey;'>
@@ -141,4 +132,6 @@ st.markdown("""
     <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
+""", unsafe_allow_html=True)
+
 """, unsafe_allow_html=True)
