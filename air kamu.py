@@ -1,3 +1,18 @@
+Coba beberapa langkah berikut untuk memastikan latar belakang muncul dengan benar pada aplikasi Streamlit:
+
+1. **Cek Gambar URL**: Kadang gambar dari URL eksternal tidak dimuat dengan baik. Untuk uji coba, coba menggunakan gambar latar belakang lokal atau gambar yang lebih sederhana, seperti:
+
+   ```html
+   background-image: url('https://via.placeholder.com/1920x1080.png?text=Background+Image');
+   ```
+
+2. **Menggunakan CSS Langsung dalam `.stApp`**: Cobalah untuk meletakkan CSS langsung dalam elemen `.stApp` dengan memastikan bahwa Streamlit dapat memproses aturan gaya tanpa bentrok.
+
+3. **Menambahkan `background-size: cover;`** dan `background-attachment: fixed;` untuk memastikan gambar mengisi seluruh latar belakang dan tidak menggulung ketika kita menggulir halaman.
+
+Berikut adalah kode yang dimodifikasi:
+
+```python
 import streamlit as st
 import random
 
@@ -11,7 +26,7 @@ st.markdown(
     .stApp {
         background-color: #1E3A8A;  /* Latar belakang biru tua */
         color: #FFFFFF;  /* Warna font utama putih */
-        background-image: url('https://images.unsplash.com/photo-1532007111223-147c8b11ff9c');  /* Gambar latar belakang */
+        background-image: url('https://via.placeholder.com/1920x1080.png?text=Background+Image');  /* Gambar latar belakang uji coba */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -172,3 +187,6 @@ st.markdown("""
     <i>Design &amp; Development oleh Tim Kreatif LPK 7, 2025</i>
     </p>
 """, unsafe_allow_html=True)
+```
+
+Dengan gambar yang lebih sederhana, Anda bisa melihat apakah latar belakang muncul atau tidak. Jika masih tidak muncul, coba verifikasi apakah `stApp` adalah elemen yang benar di dalam layout Streamlit.
