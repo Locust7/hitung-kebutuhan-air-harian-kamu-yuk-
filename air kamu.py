@@ -58,6 +58,10 @@ with st.form("form_air"):
         "Panas (tropis, kering, atau sangat lembap)"
     ])
 
+    city = st.text_input("🌍 Masukkan nama kota untuk memeriksa cuaca", "Jakarta")
+    
+    makanan = st.selectbox("🍴 Pilih jenis makanan yang dikonsumsi hari ini", ["Semangka", "Timun", "Jeruk", "Apel"])
+
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
 # Fungsi untuk mendapatkan cuaca
@@ -67,7 +71,20 @@ def get_weather(city):
     response = requests.get(base_url)
     data = response.json()
     temperature = data['main']['temp']
-    return temperature
+    weather = data['weather'][0]['description']
+    return temperature, weather
+
+# Kalkulator keseimbangan air dengan makanan
+def kalkulasi_air_makanan(makanan):
+    if makanan == "Semangka":
+        kandungan_air = 0.92  # 92% air dalam semangka
+    elif makanan == "Timun":
+        kandungan_air = 0.96  # 96% air dalam timun
+    elif makanan == "Jeruk":
+        kandungan_air = 0.86  # 86% air dalam jeruk
+    else:
+        kandungan_air = 0.86  # 86% air dalam apel
+    return kandungan_air
 
 # Proses perhitungan
 if submitted:
@@ -101,32 +118,22 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Input untuk kota cuaca
-        city = st.text_input("Masukkan nama kota untuk memeriksa cuaca")
-        
         # Pembaruan cuaca
-        if city:
-            temperature = get_weather(city)
-            st.write(f"Temperatur di {city} adalah {temperature}°C.")
-            
-            if temperature > 30:
-                st.warning("Cuaca panas! Disarankan untuk meningkatkan konsumsi air lebih banyak.")
-            elif temperature < 15:
-                st.info("Cuaca dingin, jangan lupa tetap minum air agar tubuh tetap terhidrasi!")
+        temperature, weather = get_weather(city)
+        st.subheader(f"🌍 Cuaca di {city}:")
+        st.write(f"Temperatur: {temperature}°C")
+        st.write(f"Deskripsi Cuaca: {weather}")
+
+        if temperature > 30:
+            st.warning("Cuaca panas! Disarankan untuk meningkatkan konsumsi air lebih banyak.")
+        elif temperature < 15:
+            st.info("Cuaca dingin, jangan lupa tetap minum air agar tubuh tetap terhidrasi!")
 
         # Kalkulator keseimbangan air dengan makanan
-        makanan = st.selectbox("Pilih jenis makanan yang dikonsumsi hari ini", ["Semangka", "Timun", "Jeruk", "Apel"])
-
-        if makanan == "Semangka":
-            kandungan_air = 0.92  # 92% air dalam semangka
-        elif makanan == "Timun":
-            kandungan_air = 0.96  # 96% air dalam timun
-        elif makanan == "Jeruk":
-            kandungan_air = 0.86  # 86% air dalam jeruk
-        else:
-            kandungan_air = 0.86  # 86% air dalam apel
-
-        st.write(f"Jumlah air dalam makanan yang kamu makan: {kandungan_air * 100}% dari berat makanan.")
+        kandungan_air = kalkulasi_air_makanan(makanan)
+        st.subheader(f"💧 Keseimbangan Air dengan Makanan ({makanan}):")
+        st.write(f"Jumlah air dalam {makanan}: {kandungan_air * 100}% dari berat makanan.")
+        st.write(f"Misalnya, kamu makan 100g {makanan}, maka kamu sudah mendapatkan {kandungan_air * 100}g air dari makanan tersebut!")
 
         # Pengingat Minum Air
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
@@ -165,3 +172,4 @@ st.markdown("""
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
 """, unsafe_allow_html=True)
+
