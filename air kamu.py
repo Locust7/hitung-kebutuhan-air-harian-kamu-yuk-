@@ -5,13 +5,13 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang dengan warna gelap dan kontras agar font terlihat jelas
+# Tambahkan latar belakang dengan warna biru gelap dan font yang cerah
 st.markdown(
     """
     <style>
     .stApp {
         background-color: #003366;  /* Latar belakang biru gelap */
-        color: #FFFFFF;  /* Warna font putih agar lebih jelas */
+        color: #FFFFFF;  /* Warna font utama putih */
     }
     .block-container {
         background-color: rgba(255, 255, 255, 0.90);
@@ -19,12 +19,15 @@ st.markdown(
         border-radius: 15px;
     }
     h1, h2, h3, h4 {
-        color: #00BFFF;
+        color: #FFFF00;  /* Warna font untuk header (kuning cerah) */
     }
     .stButton>button {
-        background-color: #00BFFF;
+        background-color: #00BFFF;  /* Tombol biru */
         color: white;
         border-radius: 10px;
+    }
+    .stMarkdown p {
+        color: #FFFFFF;  /* Warna font untuk paragraf deskripsi */
     }
     </style>
     """,
@@ -33,7 +36,7 @@ st.markdown(
 
 # Header
 st.markdown("""  
-    <h1 style='text-align: center; color: #00BFFF;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
+    <h1 style='text-align: center; color: #FFFF00;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
