@@ -59,6 +59,24 @@ with st.form("form_air"):
 
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
+# Checklist Harian Minum Air
+st.subheader("✅ Checklist Minum Air Hari Ini")
+st.markdown("Coba tantang diri kamu minum *minimal* 8 gelas air hari ini! Centang kalau sudah ✅")
+
+gelas_diminum = []
+for i in range(1, 9):
+    gelas = st.checkbox(f"Gelas ke-{i}", key=f"gelas_{i}")
+    gelas_diminum.append(gelas)
+
+jumlah = sum(gelas_diminum)
+if jumlah == 8:
+    st.balloons()
+    st.success("🎉 Hebat! Kamu sudah minum 8 gelas air hari ini!")
+elif jumlah >= 5:
+    st.info(f"👍 Bagus! Sudah {jumlah} gelas, sedikit lagi!")
+else:
+    st.warning(f"💧 Baru {jumlah} gelas hari ini. Yuk minum lagi!")
+
 # Proses perhitungan
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu..."):
