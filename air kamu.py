@@ -1,6 +1,6 @@
 import streamlit as st
 import time
-import random
+import requests
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
@@ -60,6 +60,15 @@ with st.form("form_air"):
 
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
+# Fungsi untuk mendapatkan cuaca
+def get_weather(city):
+    api_key = "API_KEY"  # Ganti dengan API key dari OpenWeatherMap
+    base_url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+    response = requests.get(base_url)
+    data = response.json()
+    temperature = data['main']['temp']
+    return temperature
+
 # Proses perhitungan
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu..."):
@@ -92,11 +101,38 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
+        # Input untuk kota cuaca
+        city = st.text_input("Masukkan nama kota untuk memeriksa cuaca")
+        
+        # Pembaruan cuaca
+        if city:
+            temperature = get_weather(city)
+            st.write(f"Temperatur di {city} adalah {temperature}°C.")
+            
+            if temperature > 30:
+                st.warning("Cuaca panas! Disarankan untuk meningkatkan konsumsi air lebih banyak.")
+            elif temperature < 15:
+                st.info("Cuaca dingin, jangan lupa tetap minum air agar tubuh tetap terhidrasi!")
+
+        # Kalkulator keseimbangan air dengan makanan
+        makanan = st.selectbox("Pilih jenis makanan yang dikonsumsi hari ini", ["Semangka", "Timun", "Jeruk", "Apel"])
+
+        if makanan == "Semangka":
+            kandungan_air = 0.92  # 92% air dalam semangka
+        elif makanan == "Timun":
+            kandungan_air = 0.96  # 96% air dalam timun
+        elif makanan == "Jeruk":
+            kandungan_air = 0.86  # 86% air dalam jeruk
+        else:
+            kandungan_air = 0.86  # 86% air dalam apel
+
+        st.write(f"Jumlah air dalam makanan yang kamu makan: {kandungan_air * 100}% dari berat makanan.")
+
         # Pengingat Minum Air
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
         st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
 
-        # Rekomendasi Menu
+        # Rekomendasi Menu untuk Hidrasi yang Lebih Baik
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik:")
         st.markdown("""
         - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
@@ -120,19 +156,6 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Fun Fact tambahan
-        st.subheader("💡 Fun Fact tentang Air & Tubuhmu!")
-        fakta_air = [
-            "🧠 Otak manusia terdiri dari sekitar 75% air!",
-            "💧 Kehilangan hanya 2% cairan tubuh bisa menurunkan fokus dan konsentrasi.",
-            "🧃 Air membantu mengangkut nutrisi dan oksigen ke seluruh tubuh.",
-            "🚽 Minum cukup air membantu ginjal menyaring limbah dengan lebih efektif.",
-            "🔥 Air membantu mengatur suhu tubuh lewat keringat.",
-            "😴 Minum cukup air bisa membantu kualitas tidurmu jadi lebih baik!",
-            "👶 Bayi memiliki persentase air lebih tinggi daripada orang dewasa, hingga 78% dari berat tubuh!"
-        ]
-        st.info(random.choice(fakta_air))
-
 # Watermark
 st.markdown("""
     <hr>
@@ -142,4 +165,3 @@ st.markdown("""
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
 """, unsafe_allow_html=True)
-
