@@ -7,7 +7,7 @@ import numpy as np
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang
+# Tambahkan latar belakang bergambar air minum
 st.markdown(
     f"""
     <style>
@@ -100,19 +100,22 @@ if submitted:
         progress = min(minum / target, 1.0)
         st.progress(progress, text=f"{minum:.1f} L dari {target:.1f} L")
 
-        # 🔔 Pengingat teks sederhana
-        st.subheader("🔔 Simulasi Pengingat Minum Air")
-        interval = st.selectbox("Setel interval pengingat", ["Setiap 30 menit", "Setiap 1 jam", "Setiap 2 jam"])
-        st.info(f"📌 Ingat ya! Minum segelas air {interval.lower()}! Kamu bisa setel pengingat di HP juga! 📱💧")
+        # 🔔 Suara pengingat minum
+        st.subheader("🔔 Pengingat Minum Air")
+        reminder_on = st.checkbox("Aktifkan Suara Pengingat?")
+        reminder_interval = st.slider("Interval pengingat (menit)", 15, 120, 60, 15)
+        if reminder_on:
+            st.audio("https://www.soundjay.com/buttons/sounds/beep-07.mp3", autoplay=True)
+            st.info(f"⏰ Suara pengingat akan aktif setiap {reminder_interval} menit (simulasi manual)")
 
-        # 🗓️ Kalender catatan hidrasi
+        # 🗓️ Kalender catatan hidrasi ringan
         st.subheader("🗓️ Catatan Hidrasi Harian")
         tanggal = st.date_input("Tanggal hari ini", datetime.date.today())
         catatan = st.text_input("Catatan hidrasi (opsional)", "")
         if catatan:
             st.success(f"📘 Catatan tersimpan untuk {tanggal}: {catatan}")
 
-        # Tips
+        # Edukasi & tips
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan")
         st.markdown("""
         <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
@@ -131,4 +134,5 @@ st.markdown("""
     🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙:<br>
     <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
     <i>Tim paling segar di antara deadline! 🍹</i>
-    </p>""", unsafe_allow_html=True)
+    </p>
+""", unsafe_allow_html=True)
