@@ -1,52 +1,22 @@
 import streamlit as st
-import time
 import random
-from datetime import datetime
 
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Fungsi menentukan tema siang/malam
-def get_theme_css():
-    hour = datetime.now().hour
-    if 6 <= hour < 18:
-        # Tema siang
-        background = "https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80"
-        overlay_color = "rgba(255, 255, 255, 0.90)"
-    else:
-        # Tema malam
-        background = "https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80"
-        overlay_color = "rgba(0, 0, 0, 0.7)"
-    return background, overlay_color
-
-# Fungsi simulasi dehidrasi
-def simulasi_dehidrasi(kebutuhan_liter, konsumsi_liter):
-    selisih = kebutuhan_liter - konsumsi_liter
-    if selisih <= 0:
-        return "✅ Kamu cukup minum hari ini. Tetap pertahankan ya! 💪"
-    elif selisih < 0.5:
-        return "⚠️ Kamu hampir cukup minum, tapi masih perlu sedikit lagi. 💧"
-    elif selisih < 1.0:
-        return "🚨 Kamu mengalami tanda-tanda awal dehidrasi. Segera minum air! 🥤"
-    else:
-        return "❌ Wah, kamu sangat kekurangan cairan! Bisa pusing & lemas. Minum sekarang! 🧃"
-
-# Tambahkan latar belakang bergambar air minum dengan tema siang/malam
-bg_url, overlay = get_theme_css()
+# Tambahkan latar belakang bergambar air minum
 st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url('{bg_url}');
-        background-size: cover;
-        background-attachment: fixed;
-    }}
-    .block-container {{
-        background-color: {overlay};
-        padding: 2rem;
-        border-radius: 15px;
-    }}
-    </style>
+    """ <style>
+    .stApp {
+    background-image: url('https://images.unsplash.com/photo-1589467235304-46069d5a3a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    }
+    .block-container {
+    background-color: rgba(255, 255, 255, 0.90);
+    padding: 2rem;
+    border-radius: 15px;
+    } </style>
     """,
     unsafe_allow_html=True
 )
@@ -160,13 +130,20 @@ if submitted:
         ]
         st.info(random.choice(fakta_air))
 
-        # Input tambahan untuk simulasi dehidrasi
-        konsumsi_hari_ini = st.number_input("🥤 Berapa liter air yang kamu minum hari ini?", min_value=0.0, max_value=10.0, step=0.1)
+# Pengetahuan Tentang Air Minum
+st.subheader("🔍 Pengetahuan Tentang Air Minum")
+st.markdown("""
+**Air** adalah kebutuhan dasar bagi setiap makhluk hidup. Berikut adalah beberapa fakta penting tentang air:
 
-        # Simulasi dehidrasi
-        hasil_simulasi = simulasi_dehidrasi(kebutuhan_total_min, konsumsi_hari_ini)
-        st.subheader("🚨 Simulasi Dehidrasi")
-        st.info(hasil_simulasi)
+- 💧 **Menjaga Hidrasi**: Air membantu menjaga keseimbangan cairan dalam tubuh kita, yang penting untuk fungsi organ tubuh seperti jantung, ginjal, dan otak.
+- 🧑‍⚕️ **Meningkatkan Kinerja Fisik**: Selama aktivitas fisik, tubuh kehilangan air melalui keringat. Minum air yang cukup membantu mencegah dehidrasi dan meningkatkan kinerja fisik.
+- 🧠 **Meningkatkan Konsentrasi dan Fokus**: Kekurangan cairan dapat memengaruhi kemampuan kita untuk fokus dan berpikir jernih. Minum cukup air dapat meningkatkan konsentrasi dan memori jangka pendek.
+- 🛁 **Menjaga Kulit Sehat**: Air membantu menjaga kelembapan kulit dan mengurangi risiko kulit kering dan keriput.
+- 🥤 **Mengatur Suhu Tubuh**: Air berfungsi untuk mengatur suhu tubuh kita melalui keringat, yang sangat penting ketika cuaca panas atau saat beraktivitas fisik.
+- 🌱 **Detoksifikasi**: Air membantu tubuh untuk membuang racun dan limbah melalui urin dan keringat.
+
+### Kenapa Minum Air Itu Penting?
+Setiap organ tubuh kita bergantung pada air. Tanpa air, tubuh tidak dapat berfungsi dengan optimal, bahkan untuk proses dasar seperti pencernaan dan metabolisme. Oleh karena itu, pastikan kamu selalu minum cukup air setiap hari untuk menjaga tubuh tetap sehat dan terhidrasi dengan baik!
 
 # Watermark
 st.markdown("""
@@ -177,4 +154,5 @@ st.markdown("""
     <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
 """, unsafe_allow_html=True)
+
 
