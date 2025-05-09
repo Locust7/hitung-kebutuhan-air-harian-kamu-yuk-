@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 import random
 
 # Konfigurasi halaman
@@ -113,7 +112,7 @@ if submitted:
 
         # Rekomendasi Menu
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
-        st.markdown("""
+        st.markdown("""  
         - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
         - 🥗 **Sayuran Hijau**: Selada, timun, dan bayam juga membantu tubuh tetap terhidrasi.
         - 🧃 **Minuman Sehat**: Teh herbal atau infused water dengan irisan lemon atau mentimun.
@@ -125,7 +124,7 @@ if submitted:
 
         # Fitur Informasi tentang air dan hidrasi
         st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
-        st.markdown("""
+        st.markdown("""  
         **Kenapa Air Itu Penting?**  
         Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
 
