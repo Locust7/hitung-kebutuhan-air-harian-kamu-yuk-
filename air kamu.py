@@ -5,12 +5,12 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
 
-# Tambahkan latar belakang gelap dengan emoticon air di sekitarnya
+# Tambahkan latar belakang biru tua
 st.markdown(
     """
     <style>
     .stApp {
-        background-color: #2c3e50;  /* Latar belakang gelap */
+        background-color: #1E3A8A;  /* Latar belakang biru tua */
         color: #FFFFFF;  /* Warna font utama putih */
         background-image: url('https://images.unsplash.com/photo-1532007111223-147c8b11ff9c');  /* Gambar latar belakang */
         background-repeat: no-repeat;
@@ -46,7 +46,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Penjelasan awal
-st.markdown("""
+st.markdown("""  
 Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 
 - 🎂 *Umur*  
