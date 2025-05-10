@@ -4,9 +4,17 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Harian", layout="centered")
 
-# CSS untuk menyesuaikan warna font dengan mode gelap dan terang
+# Menambahkan latar belakang biru tua dengan gambar yang valid
 st.markdown("""
     <style>
+    .stApp {
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                    url('https://images.unsplash.com/photo-1532009324734-20a7a5813719?auto=format&fit=crop&w=1400&q=80');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white !important;
+    }
     /* Mode terang */
     .light-mode .stApp {
         color: #333333;
@@ -194,10 +202,4 @@ st.markdown("""
     <p class="watermark" style="text-align: center; font-size: 16px;">
         🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙<br>
         <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
-        <i>Tim paling segar di antara deadline! 🍹</i>
-    </p>
-    <p class="watermark" style="text-align: center; font-size: 13px;">
-        <i>Design &amp; Development oleh Tim Kreatif LPK 7 • 2025</i>
-    </p>
-""", unsafe_allow_html=True)
-
+        <i
