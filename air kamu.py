@@ -35,7 +35,6 @@ Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 - ☀ *Iklim tempat tinggal*  
 
 ---
-
 ## 📚 Informasi Tentang Air dan Hidrasi 💧
 
 **Kenapa Air Itu Penting?**  
