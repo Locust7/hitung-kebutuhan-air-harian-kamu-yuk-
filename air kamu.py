@@ -24,7 +24,7 @@ st.markdown("""
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
-# Penjelasan awal
+# Penjelasan awal + edukasi hidrasi
 st.markdown("""  
 Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 
@@ -45,31 +45,31 @@ Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, se
 2. **Membantu Pencernaan** 💪  
 3. **Mengatur Suhu Tubuh** 🌡️  
 4. **Mencegah Sakit Kepala** 🤕
-
 """)
 
 # Form input
-st.markdown("<span style='color: #00FFFF;'>🎂 Umur (tahun)</span>", unsafe_allow_html=True)
-umur = st.number_input("", min_value=0, max_value=120, value=25)
+with st.form("form_air"):
+    st.markdown("<span style='color: #00FFFF;'>🎂 Umur (tahun)</span>", unsafe_allow_html=True)
+    umur = st.number_input("", min_value=0, max_value=120, value=25)
 
-st.markdown("<span style='color: #FF69B4;'>🚻 Jenis Kelamin</span>", unsafe_allow_html=True)
-jenis_kelamin = st.selectbox("", ["👦 Laki-laki", "👧 Perempuan"])
+    st.markdown("<span style='color: #FF69B4;'>🚻 Jenis Kelamin</span>", unsafe_allow_html=True)
+    jenis_kelamin = st.selectbox("", ["👦 Laki-laki", "👧 Perempuan"])
 
-st.markdown("<span style='color: #ADFF2F;'>⚖ Berat Badan (kg)</span>", unsafe_allow_html=True)
-berat_badan = st.number_input("", min_value=1.0, max_value=200.0, value=60.0)
+    st.markdown("<span style='color: #ADFF2F;'>⚖ Berat Badan (kg)</span>", unsafe_allow_html=True)
+    berat_badan = st.number_input("", min_value=1.0, max_value=200.0, value=60.0)
 
-st.markdown("<span style='color: #FFA07A;'>🤸 Tingkat Aktivitas Fisik</span>", unsafe_allow_html=True)
-aktivitas = st.selectbox("", [
-    "Ringan (pekerjaan ringan, sedikit olahraga) 🐌",
-    "Sedang (olahraga 3–5 kali/minggu) 🏃‍♂️",
-    "Berat (olahraga intens atau pekerjaan berat) 🏋️"
-])
+    st.markdown("<span style='color: #FFA07A;'>🤸 Tingkat Aktivitas Fisik</span>", unsafe_allow_html=True)
+    aktivitas = st.selectbox("", [
+        "Ringan (pekerjaan ringan, sedikit olahraga) 🐌",
+        "Sedang (olahraga 3–5 kali/minggu) 🏃‍♂️",
+        "Berat (olahraga intens atau pekerjaan berat) 🏋️"
+    ])
 
-st.markdown("<span style='color: #FFD700;'>☀ Iklim Tempat Tinggal</span>", unsafe_allow_html=True)
-iklim = st.selectbox("", [
-    "Sedang/Dingin 🧣",
-    "Panas (tropis, kering, atau sangat lembap) 🏖️"
-])
+    st.markdown("<span style='color: #FFD700;'>☀ Iklim Tempat Tinggal</span>", unsafe_allow_html=True)
+    iklim = st.selectbox("", [
+        "Sedang/Dingin 🧣",
+        "Panas (tropis, kering, atau sangat lembap) 🏖️"
+    ])
 
     submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
@@ -139,10 +139,4 @@ st.markdown("""
     <hr style="border: 1px solid #00BFFF; margin-top: 40px;">
     <p style="text-align: center; font-size: 16px; color: lightgrey;">
         🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙<br>
-        <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
-        <i>Tim paling segar di antara deadline! 🍹</i>
-    </p>
-    <p style="text-align: center; font-size: 13px; color: lightgrey;">
-        <i>Design &amp; Development oleh Tim Kreatif LPK 7 • 2025</i>
-    </p>
-""", unsafe_allow_html=True)
+        <b>Daviona ✨, Ifta 🧋,
