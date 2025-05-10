@@ -16,10 +16,10 @@ st.markdown("""
         color: white !important;
     }
     h1, h3 {
-        color: #transparent;
+        color: #90EE90;
     }
     .perhitungan-selesai {
-        color: #transparent;
+        color: #90EE90;
     }
     .catatan {
         color: #FFB6C1;
