@@ -119,6 +119,12 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
+        # Fitur mode "Emergency Hydration"
+is_emergency = st.checkbox("🔥 Situasi darurat (setelah olahraga/di tempat panas)?")
+
+if is_emergency:
+    st.markdown("🚨 **Penting!** Jika kamu baru selesai berolahraga atau berada di suhu yang sangat panas, kamu harus meningkatkan asupan air hingga 2 kali lipat dari kebutuhan normal!")
+
         # Pengingat
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
         st.markdown(f"<p class='pengingat'>⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶</p>", unsafe_allow_html=True)
