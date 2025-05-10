@@ -139,4 +139,10 @@ st.markdown("""
     <hr style="border: 1px solid #00BFFF; margin-top: 40px;">
     <p style="text-align: center; font-size: 16px; color: lightgrey;">
         🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙<br>
-        <b>Daviona ✨, Ifta 🧋,
+        <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
+        <i>Tim paling segar di antara deadline! 🍹</i>
+    </p>
+    <p style="text-align: center; font-size: 13px; color: lightgrey;">
+        <i>Design &amp; Development oleh Tim Kreatif LPK 7 • 2025</i>
+    </p>
+""", unsafe_allow_html=True)
