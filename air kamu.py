@@ -17,13 +17,7 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
-    .block-container {
-        background-color: rgba(255, 255, 255, 0.85);  /* Warna latar belakang form */
-        padding: 2rem;
-        border-radius: 15px;
-    }
-    h1, h2, h3, h4 {
-        color: #FFFF00;  /* Warna font header kuning cerah */
+ { color: #FFFF00;  /* Warna font header kuning cerah */
     }
     .stButton>button {
         background-color: #00BFFF;  /* Tombol biru */
