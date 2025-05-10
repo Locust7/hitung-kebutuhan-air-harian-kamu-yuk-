@@ -99,7 +99,7 @@ if submitted:
 
         # Pengingat Minum Air dengan warna font yang lebih jelas
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
-        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶", icon="⚠️")
+        st.markdown(f"<p style='color:#FFA500;'>⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶</p>", unsafe_allow_html=True)
 
         # Rekomendasi Menu dengan font warna yang disesuaikan
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
@@ -115,7 +115,7 @@ if submitted:
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan: 💼")
         st.markdown("""  
         <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
-            <ul>
+            <ul style="color:#008080;">
                 <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus. 🌊"</li>
                 <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Selalu bawa botol air ke mana pun kamu pergi. 🚶‍♂️💧"</li>
                 <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu. Urin gelap = kurang minum. 🔍🚽"</li>
@@ -123,7 +123,6 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Fun Fact tambahan
         st.subheader("💡 Fun Fact tentang Air & Tubuhmu! 🤓")
         fakta_air = [
             "🧠 Otak manusia terdiri dari sekitar 75% air!",
@@ -134,7 +133,7 @@ if submitted:
             "😴 Minum cukup air bisa membantu kualitas tidurmu jadi lebih baik!",
             "👶 Bayi memiliki persentase air lebih tinggi daripada orang dewasa, hingga 78% dari berat tubuh!"
         ]
-        st.info(random.choice(fakta_air))
+        st.markdown(f"<p style='color:#32CD32;'>🧠 {random.choice(fakta_air)}</p>", unsafe_allow_html=True)
 
 # Watermark dengan warna font berbeda
 st.markdown("""  
