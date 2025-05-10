@@ -54,18 +54,17 @@ Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 - 🤸 *Aktivitas fisik*  
 - ☀ *Iklim tempat tinggal*  
 
- # Fitur Informasi tentang air dan hidrasi
-        st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
-        st.markdown("""  
-        **Kenapa Air Itu Penting?**  
-        Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
+st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
+st.markdown
+**Kenapa Air Itu Penting?**  
+Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
 
-        **Manfaat Minum Air**:
-        1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus. 🧠
-        2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh. 💪
-        3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil. 🌡️
-        4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini. 🤕
-        """)""")
+**Manfaat Minum Air**:
+ 1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus. 🧠
+ 2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh. 💪
+ 3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil. 🌡️
+ 4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini. 🤕
+    """)
 
 # Form input
 with st.form("form_air"):
