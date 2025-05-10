@@ -86,6 +86,10 @@ iklim = st.selectbox("☀ Iklim Tempat Tinggal", [
     "Panas (tropis, kering, atau sangat lembap) 🏖️"
 ])
 
+# Kondisi Kesehatan
+kondisi_kesehatan = st.selectbox("Apakah kamu memiliki kondisi kesehatan yang mempengaruhi kebutuhan air?", 
+                                  ["Tidak ada", "Diabetes", "Hipertensi", "Penyakit ginjal"])
+
 submitted = st.button("🚰 Hitung Kebutuhan Air!")
 
 # Proses perhitungan
@@ -98,6 +102,19 @@ if submitted:
         faktor_aktivitas = 1.1 if aktivitas.startswith("Ringan") else 1.25 if aktivitas.startswith("Sedang") else 1.35
         faktor_iklim = 1.1 if iklim.startswith("Panas") else 1.0
 
+          # Menyesuaikan kebutuhan berdasarkan kondisi kesehatan
+        if kondisi_kesehatan == "Diabetes":
+            faktor_kesehatan = 1.2  # Tambahkan faktor untuk kondisi diabetes
+            st.warning("⚠️ Kondisi Diabetes membutuhkan hidrasi yang lebih tinggi! Pastikan untuk minum cukup air.")
+        elif kondisi_kesehatan == "Hipertensi":
+            faktor_kesehatan = 1.1  # Tambahkan faktor untuk kondisi hipertensi
+            st.warning("⚠️ Hipertensi memerlukan perhatian khusus terhadap hidrasi. Pastikan tidak dehidrasi.")
+        elif kondisi_kesehatan == "Penyakit ginjal":
+            faktor_kesehatan = 1.3  # Tambahkan faktor untuk kondisi ginjal
+            st.warning("⚠️ Penyakit ginjal memerlukan lebih banyak perhatian terhadap hidrasi. Minumlah air secara bertahap.")
+        else:
+            faktor_kesehatan = 1.0  # Tidak ada faktor khusus jika kondisi kesehatan tidak ada
+            
         kebutuhan_total_min = kebutuhan_dasar_min * faktor_aktivitas * faktor_iklim
         kebutuhan_total_max = kebutuhan_dasar_max * faktor_aktivitas * faktor_iklim
 
