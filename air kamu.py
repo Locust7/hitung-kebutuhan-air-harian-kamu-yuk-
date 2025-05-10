@@ -17,8 +17,6 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
- { color: #FFFF00;  /* Warna font header kuning cerah */
-    }
     .stButton>button {
         background-color: #00BFFF;  /* Tombol biru */
         color: white;
