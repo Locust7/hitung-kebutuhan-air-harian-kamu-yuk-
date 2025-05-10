@@ -25,7 +25,7 @@ st.markdown("""
         color: #FFB6C1;
     }
     .pengingat {
-        color: #FFD700;
+        color: #90EE90;
     }
     .tips {
         color: #90EE90;
