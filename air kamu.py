@@ -16,10 +16,10 @@ st.markdown("""
         color: white !important;
     }
     h1, h3 {
-        color: #00FFFF; /* Cyan terang agar kontras dengan background */
+        color: #transparent;
     }
     .perhitungan-selesai {
-        color: #00FFFF;
+        color: #transparent;
     }
     .catatan {
         color: #FFB6C1;
