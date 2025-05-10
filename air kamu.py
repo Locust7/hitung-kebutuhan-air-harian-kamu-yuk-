@@ -4,7 +4,7 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Harian", layout="centered")
 
-# CSS untuk latar belakang dan font
+# CSS untuk latar belakang dan font dengan warna yang lebih cerah & menarik
 st.markdown("""
     <style>
     .stApp {
@@ -13,25 +13,31 @@ st.markdown("""
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        color: white !important;
+        color: #F5F5F5 !important;
     }
+
     h1, h3 {
-        color: #90EE90;
+        color: #00FFCC;
     }
+
     .perhitungan-selesai {
-        color: #90EE90;
+        color: #00FA9A; /* Medium spring green */
     }
+
     .catatan {
-        color: #FFB6C1;
+        color: #FF69B4; /* Hot pink */
     }
+
     .pengingat {
-        color: #90EE90;
+        color: #FFD700; /* Gold */
     }
+
     .tips {
-        color: #90EE90;
+        color: #7FFFD4; /* Aquamarine */
     }
+
     .watermark {
-        color: lightgrey;
+        color: #D3D3D3; /* Light grey */
     }
     </style>
 """, unsafe_allow_html=True)
