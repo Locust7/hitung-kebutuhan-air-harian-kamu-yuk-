@@ -48,6 +48,29 @@ Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, se
 
 """)
 
+# desain warna 
+st.markdown("<span style='color: #00FFFF;'>🎂 Umur (tahun)</span>", unsafe_allow_html=True)
+umur = st.number_input("", min_value=0, max_value=120, value=25)
+
+st.markdown("<span style='color: #FF69B4;'>🚻 Jenis Kelamin</span>", unsafe_allow_html=True)
+jenis_kelamin = st.selectbox("", ["👦 Laki-laki", "👧 Perempuan"])
+
+st.markdown("<span style='color: #ADFF2F;'>⚖ Berat Badan (kg)</span>", unsafe_allow_html=True)
+berat_badan = st.number_input("", min_value=1.0, max_value=200.0, value=60.0)
+
+st.markdown("<span style='color: #FFA07A;'>🤸 Tingkat Aktivitas Fisik</span>", unsafe_allow_html=True)
+aktivitas = st.selectbox("", [
+    "Ringan (pekerjaan ringan, sedikit olahraga) 🐌",
+    "Sedang (olahraga 3–5 kali/minggu) 🏃‍♂️",
+    "Berat (olahraga intens atau pekerjaan berat) 🏋️"
+])
+
+st.markdown("<span style='color: #FFD700;'>☀ Iklim Tempat Tinggal</span>", unsafe_allow_html=True)
+iklim = st.selectbox("", [
+    "Sedang/Dingin 🧣",
+    "Panas (tropis, kering, atau sangat lembap) 🏖️"
+])
+
 # Form input
 with st.form("form_air"):
     umur = st.number_input("🎂 Umur (tahun)", min_value=0, max_value=120, value=25)
