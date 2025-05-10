@@ -4,23 +4,75 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Harian", layout="centered")
 
-# Tambahkan latar belakang biru tua dengan gambar yang valid
+# CSS untuk menyesuaikan warna font dengan mode gelap dan terang
 st.markdown("""
     <style>
-    .stApp {
-        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-                    url('https://images.unsplash.com/photo-1532009324734-20a7a5813719?auto=format&fit=crop&w=1400&q=80');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        color: white !important;
+    /* Mode terang */
+    .light-mode .stApp {
+        color: #333333;
     }
+    
+    /* Mode gelap */
+    .dark-mode .stApp {
+        color: #f0f0f0;
+    }
+    
+    /* Header dan judul */
+    .stApp h1, .stApp h3 {
+        color: #FFFF00;
+    }
+    
+    /* Warna teks untuk input dan teks penting */
+    .light-mode .stApp {
+        color: #000000;
+    }
+    .dark-mode .stApp {
+        color: #FFFFFF;
+    }
+    
+    /* Ubah warna untuk setiap bagian teks */
+    .light-mode .stApp .perhitungan-selesai {
+        color: #00FFFF;
+    }
+    .dark-mode .stApp .perhitungan-selesai {
+        color: #00BFFF;
+    }
+    
+    .light-mode .stApp .catatan {
+        color: #DC143C;
+    }
+    .dark-mode .stApp .catatan {
+        color: #FF6347;
+    }
+
+    .light-mode .stApp .pengingat {
+        color: #FFA500;
+    }
+    .dark-mode .stApp .pengingat {
+        color: #FF8C00;
+    }
+
+    .light-mode .stApp .tips {
+        color: #32CD32;
+    }
+    .dark-mode .stApp .tips {
+        color: #98FB98;
+    }
+
+    /* Watermark */
+    .light-mode .stApp .watermark {
+        color: lightgrey;
+    }
+    .dark-mode .stApp .watermark {
+        color: #333333;
+    }
+    
     </style>
 """, unsafe_allow_html=True)
 
 # Header
 st.markdown("""  
-    <h1 style='text-align: center; color: #FFFF00;'>💧🐧 Kalkulator Kebutuhan Air Harian 🥤🍉</h1>
+    <h1 style='text-align: center;'>💧🐧 Kalkulator Kebutuhan Air Harian 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
@@ -77,29 +129,29 @@ if submitted:
         kebutuhan_total_min = kebutuhan_dasar_min * faktor_aktivitas * faktor_iklim
         kebutuhan_total_max = kebutuhan_dasar_max * faktor_aktivitas * faktor_iklim
 
-        # Output Perhitungan dengan warna font yang diubah
-        st.markdown("<h3 style='color:#00FFFF;'>🎉 Perhitungan selesai! 🎉</h3>", unsafe_allow_html=True)
+        # Output Perhitungan dengan warna font yang disesuaikan untuk mode gelap dan terang
+        st.markdown("<h3 class='perhitungan-selesai'>🎉 Perhitungan selesai! 🎉</h3>", unsafe_allow_html=True)
         st.markdown("<h3 style='color:#FF6347;'>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
 
         # Menampilkan hasil dengan warna font yang diubah
         st.markdown(f"""
-        <div style='color:#FF6347; font-size:18px;'>
+        <div class="perhitungan-selesai">
         - 💧 Kebutuhan dasar: <strong>{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari</strong><br>
         - 🔄 Setelah penyesuaian: <strong>{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari</strong>
         </div>
         """, unsafe_allow_html=True)
 
-        # Catatan tambahan dengan font warna berbeda
+        # Catatan tambahan dengan font warna yang disesuaikan untuk mode terang dan gelap
         st.markdown("""  
-        <div style='background-color:#e6f7ff; padding:10px; border-left:5px solid #00BFFF;'>
-            <p style="color:#DC143C;"><strong>📌 Catatan:</strong></p><br>
+        <div class="catatan">
+            📌 <strong>Catatan:</strong><br>
             Nilai ini merupakan estimasi kebutuhan air harian. Kebutuhan sebenarnya bisa bervariasi tergantung kondisi kesehatan, konsumsi makanan dan minuman lain, serta cuaca harian. Konsultasikan dengan ahli gizi atau tenaga medis untuk kebutuhan spesifik.
         </div>
         """, unsafe_allow_html=True)
 
         # Pengingat Minum Air dengan warna font yang lebih jelas
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
-        st.markdown(f"<p style='color:#FFA500;'>⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶</p>", unsafe_allow_html=True)
+        st.markdown(f"<p class='pengingat'>⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶</p>", unsafe_allow_html=True)
 
         # Rekomendasi Menu dengan font warna yang disesuaikan
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
@@ -111,12 +163,12 @@ if submitted:
         """)
 
         # Tips: Minumlah air secara bertahap dengan warna font yang berbeda
-        st.markdown("<p style='color:#32CD32;'>🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆</p>", unsafe_allow_html=True)
+        st.markdown("<p class='tips'>🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆</p>", unsafe_allow_html=True)
 
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan: 💼")
         st.markdown("""  
         <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
-            <ul style="color:#008080;">
+            <ul>
                 <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus. 🌊"</li>
                 <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Selalu bawa botol air ke mana pun kamu pergi. 🚶‍♂️💧"</li>
                 <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu. Urin gelap = kurang minum. 🔍🚽"</li>
@@ -134,17 +186,18 @@ if submitted:
             "😴 Minum cukup air bisa membantu kualitas tidurmu jadi lebih baik!",
             "👶 Bayi memiliki persentase air lebih tinggi daripada orang dewasa, hingga 78% dari berat tubuh!"
         ]
-        st.markdown(f"<p style='color:#32CD32;'>🧠 {random.choice(fakta_air)}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p class='tips'>🧠 {random.choice(fakta_air)}</p>", unsafe_allow_html=True)
 
 # Watermark dengan warna font berbeda
 st.markdown("""  
     <hr style="border: 1px solid #00BFFF; margin-top: 40px;">
-    <p style="text-align: center; font-size: 16px; color: lightgrey;">
+    <p class="watermark" style="text-align: center; font-size: 16px;">
         🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙<br>
         <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
         <i>Tim paling segar di antara deadline! 🍹</i>
     </p>
-    <p style="text-align: center; font-size: 13px; color: lightgrey;">
+    <p class="watermark" style="text-align: center; font-size: 13px;">
         <i>Design &amp; Development oleh Tim Kreatif LPK 7 • 2025</i>
     </p>
 """, unsafe_allow_html=True)
+
