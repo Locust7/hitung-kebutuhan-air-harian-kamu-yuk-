@@ -16,7 +16,7 @@ st.markdown("""
         color: white !important;
     }
     h1, h3 {
-        color: #FF6347;
+        color: #00FFFF; /* Cyan terang agar kontras dengan background */
     }
     .perhitungan-selesai {
         color: #00FFFF;
@@ -97,7 +97,7 @@ if submitted:
 
         # Hasil
         st.markdown("<h3 class='perhitungan-selesai'>🎉 Perhitungan selesai! 🎉</h3>", unsafe_allow_html=True)
-        st.markdown("<h3 style='color:#FF6347;'>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
+        st.markdown("<h3>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
         st.markdown(f"""
         <div class="perhitungan-selesai">
         - 💧 Kebutuhan dasar: <strong>{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari</strong><br>
