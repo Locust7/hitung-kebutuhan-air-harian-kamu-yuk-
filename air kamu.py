@@ -61,10 +61,10 @@ Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 ---
 ## 📚 Informasi Tentang Air dan Hidrasi 💧
 
-**Kenapa Air Itu Penting?**  
+**Kenapa Air Itu Penting?🤷‍♀️🤷‍♂️**  
 Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
 
-**Manfaat Minum Air**:
+**Manfaat Minum Air😲**:
 1. **Meningkatkan Konsentrasi dan Fokus** 🧠  
 2. **Membantu Pencernaan** 💪  
 3. **Mengatur Suhu Tubuh** 🌡️  
@@ -81,13 +81,13 @@ aktivitas = st.selectbox("🤸 Tingkat Aktivitas Fisik", [
     "Sedang (kuliah sedikit praktik) 🏃‍♂️",
     "Berat (kuliah full praktik, lanjut laprak) 🏋️"
 ])
-iklim = st.selectbox("☀ Iklim Tempat Tinggal", [
+iklim = st.selectbox("☀️ Iklim Tempat Tinggal", [
     "Sedang/Dingin 🧣",
     "Panas (tropis, kering, atau sangat lembap) 🏖️"
 ])
 
 # Kondisi Kesehatan
-kondisi_kesehatan = st.selectbox("Apakah kamu memiliki kondisi kesehatan yang mempengaruhi kebutuhan air?", 
+kondisi_kesehatan = st.selectbox("Apakah kamu memiliki kondisi kesehatan yang mempengaruhi kebutuhan air?😊", 
                                   ["Tidak ada", "Diabetes", "Hipertensi", "Penyakit ginjal"])
 
 submitted = st.button("🚰 Hitung Kebutuhan Air!")
@@ -137,7 +137,7 @@ if submitted:
         """, unsafe_allow_html=True)
 
         # Fitur mode "Emergency Hydration"
-        is_emergency = ("🔥 Situasi darurat (setelah olahraga/di tempat panas)?")
+        is_emergency = ("🔥 Situasi darurat🫨 (setelah olahraga/di tempat panas)?")
         st.markdown("🚨 **Penting!** Jika kamu baru selesai berolahraga atau berada di suhu yang sangat panas, kamu harus meningkatkan asupan air hingga 2 kali lipat dari kebutuhan normal!")
 
         # Pengingat
@@ -161,9 +161,9 @@ if submitted:
         st.markdown("""
         <div style='background-color:transparent; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
             <ul>
-                <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus. 🌊"</li>
-                <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Selalu bawa botol air ke mana pun kamu pergi. 🚶‍♂️💧"</li>
-                <li>👨‍⚕️ <strong>Dr. Sehat Jernih</strong>: "Perhatikan warna urinmu. Urin gelap = kurang minum. 🔍🚽"</li>
+                <li>👩‍⚕️: "Minumlah air sebelum merasa haus. 🌊"</li>
+                <li>🧑‍⚕️: "Selalu bawa tumbler air ke mana pun kamu pergi. 🚶‍♂️💧"</li>
+                <li>👨‍⚕️: "Perhatikan warna urinmu. Urin gelap = kurang minum. 🔍🚽"</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -185,9 +185,8 @@ if submitted:
 st.markdown("""  
     <hr style="border: 1px solid #00BFFF; margin-top: 40px;">
     <p class="watermark" style="text-align: center; font-size: 16px;">
-        🐬 Dibuat oleh <strong>LPK 7</strong> dengan cinta 💙<br>
-        <b>Daviona ✨, Ifta 🧋, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
-        <i>Tim paling segar di antara deadline! 🍹</i>
+        🐬 Dibuat oleh <strong>LPK 7</strong>💙<br>
+        <b>Daviona ✨, Ifta 🍰, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
     </p>
     <p class="watermark" style="text-align: center; font-size: 13px;">
         <i>Design &amp; Development oleh Tim Kreatif LPK 7 • 2025</i>
