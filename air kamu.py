@@ -54,9 +54,10 @@ Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 
 - 🎂 *Umur*  
 - 🚻 *Jenis kelamin*  
-- ⚖ *Berat badan*  
+- ⚖️ *Berat badan*  
 - 🤸 *Aktivitas fisik*  
-- ☀ *Iklim tempat tinggal*  
+- ☀️ *Iklim tempat tinggal*
+- 😊 *Kondisi kesehatan*
 
 ---
 ## 📚 Informasi Tentang Air dan Hidrasi 💧
@@ -75,7 +76,7 @@ Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, se
 # Form input
 umur = st.number_input("🎂 Umur (tahun)", min_value=0, max_value=120, value=25)
 jenis_kelamin = st.selectbox("🚻 Jenis Kelamin", ["👦 Laki-laki", "👧 Perempuan"])
-berat_badan = st.number_input("⚖ Berat Badan (kg)", min_value=1.0, max_value=200.0, value=60.0)
+berat_badan = st.number_input("⚖️ Berat Badan (kg)", min_value=1.0, max_value=200.0, value=60.0)
 aktivitas = st.selectbox("🤸 Tingkat Aktivitas Fisik", [
     "Ringan (pekerjaan ringan, hanya kuliah teori) 🐌",
     "Sedang (kuliah sedikit praktik) 🏃‍♂️",
@@ -87,7 +88,7 @@ iklim = st.selectbox("☀️ Iklim Tempat Tinggal", [
 ])
 
 # Kondisi Kesehatan
-kondisi_kesehatan = st.selectbox("Apakah kamu memiliki kondisi kesehatan yang mempengaruhi kebutuhan air?😊", 
+kondisi_kesehatan = st.selectbox("😊Apakah kamu memiliki kondisi kesehatan yang mempengaruhi kebutuhan air?", 
                                   ["Tidak ada", "Diabetes", "Hipertensi", "Penyakit ginjal"])
 
 submitted = st.button("🚰 Hitung Kebutuhan Air!")
@@ -186,9 +187,9 @@ st.markdown("""
     <hr style="border: 1px solid #00BFFF; margin-top: 40px;">
     <p class="watermark" style="text-align: center; font-size: 16px;">
         🐬 Dibuat oleh <strong>LPK 7</strong>💙<br>
-        <b>Daviona ✨, Ifta 🍰, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
+        <b>Ifta 🍄, Daviona ✨, Nadila 🎀, Vania 🌸, Sulthan 🎩</b><br>
     </p>
     <p class="watermark" style="text-align: center; font-size: 13px;">
-        <i>Design &amp; Development oleh Tim Kreatif LPK 7 • 2025</i>
+        <i>Design &amp; Kelompok 7 LPK • 2025</i>
     </p>
 """, unsafe_allow_html=True)
