@@ -24,7 +24,7 @@ st.markdown("""
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
-# Penjelasan awal + edukasi hidrasi
+# Penjelasan awal
 st.markdown("""  
 Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 
@@ -45,33 +45,33 @@ Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, se
 2. **Membantu Pencernaan** 💪  
 3. **Mengatur Suhu Tubuh** 🌡️  
 4. **Mencegah Sakit Kepala** 🤕
+
 """)
 
 # Form input
-with st.form("form_air"):
-    st.markdown("<span style='color: #00FFFF;'>🎂 Umur (tahun)</span>", unsafe_allow_html=True)
-    umur = st.number_input("", min_value=0, max_value=120, value=25)
+st.markdown("<span style='color: #00FFFF;'>🎂 Umur (tahun)</span>", unsafe_allow_html=True)
+umur = st.number_input("", min_value=0, max_value=120, value=25)
 
-    st.markdown("<span style='color: #FF69B4;'>🚻 Jenis Kelamin</span>", unsafe_allow_html=True)
-    jenis_kelamin = st.selectbox("", ["👦 Laki-laki", "👧 Perempuan"])
+st.markdown("<span style='color: #FF69B4;'>🚻 Jenis Kelamin</span>", unsafe_allow_html=True)
+jenis_kelamin = st.selectbox("", ["👦 Laki-laki", "👧 Perempuan"])
 
-    st.markdown("<span style='color: #ADFF2F;'>⚖ Berat Badan (kg)</span>", unsafe_allow_html=True)
-    berat_badan = st.number_input("", min_value=1.0, max_value=200.0, value=60.0)
+st.markdown("<span style='color: #ADFF2F;'>⚖ Berat Badan (kg)</span>", unsafe_allow_html=True)
+berat_badan = st.number_input("", min_value=1.0, max_value=200.0, value=60.0)
 
-    st.markdown("<span style='color: #FFA07A;'>🤸 Tingkat Aktivitas Fisik</span>", unsafe_allow_html=True)
-    aktivitas = st.selectbox("", [
-        "Ringan (pekerjaan ringan, sedikit olahraga) 🐌",
-        "Sedang (olahraga 3–5 kali/minggu) 🏃‍♂️",
-        "Berat (olahraga intens atau pekerjaan berat) 🏋️"
-    ])
+st.markdown("<span style='color: #FFA07A;'>🤸 Tingkat Aktivitas Fisik</span>", unsafe_allow_html=True)
+aktivitas = st.selectbox("", [
+    "Ringan (pekerjaan ringan, sedikit olahraga) 🐌",
+    "Sedang (olahraga 3–5 kali/minggu) 🏃‍♂️",
+    "Berat (olahraga intens atau pekerjaan berat) 🏋️"
+])
 
-    st.markdown("<span style='color: #FFD700;'>☀ Iklim Tempat Tinggal</span>", unsafe_allow_html=True)
-    iklim = st.selectbox("", [
-        "Sedang/Dingin 🧣",
-        "Panas (tropis, kering, atau sangat lembap) 🏖️"
-    ])
+st.markdown("<span style='color: #FFD700;'>☀ Iklim Tempat Tinggal</span>", unsafe_allow_html=True)
+iklim = st.selectbox("", [
+    "Sedang/Dingin 🧣",
+    "Panas (tropis, kering, atau sangat lembap) 🏖️"
+])
 
-    submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
+submitted = st.form_submit_button("🚰 Hitung Kebutuhan Air!")
 
 # Proses perhitungan
 if submitted:
@@ -86,11 +86,19 @@ if submitted:
         kebutuhan_total_min = kebutuhan_dasar_min * faktor_aktivitas * faktor_iklim
         kebutuhan_total_max = kebutuhan_dasar_max * faktor_aktivitas * faktor_iklim
 
+        # Output Perhitungan
         st.success("🎉 Perhitungan selesai! 🎉")
-        st.subheader("💡 Hasil Perkiraan Kamu: 🥤")
-        st.write(f"- 💧 Kebutuhan dasar: *{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari*")
-        st.write(f"- 🔄 Setelah penyesuaian: *{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari*")
 
+        st.markdown("<h3 style='color:#00FFFF;'>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
+
+        st.markdown(f"""
+        <div style='color:#FFFFFF; font-size:18px;'>
+        - 💧 Kebutuhan dasar: <strong>{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari</strong><br>
+        - 🔄 Setelah penyesuaian: <strong>{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari</strong>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Catatan tambahan
         st.markdown("""  
         <div style='background-color:#e6f7ff; padding:10px; border-left:5px solid #00BFFF;'>
             📌 <strong>Catatan:</strong><br>
@@ -98,9 +106,11 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
+        # Pengingat Minum Air
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
         st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
 
+        # Rekomendasi Menu
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
         st.markdown("""  
         - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
@@ -122,6 +132,7 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
+        # Fun Fact tambahan
         st.subheader("💡 Fun Fact tentang Air & Tubuhmu! 🤓")
         fakta_air = [
             "🧠 Otak manusia terdiri dari sekitar 75% air!",
