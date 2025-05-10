@@ -2,21 +2,21 @@ import streamlit as st
 import random
 
 # Konfigurasi halaman
-st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Lucu", layout="centered")
+st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Harian", layout="centered")
 
 # Tambahkan latar belakang biru tua
-st.markdown(
-    """
+st.markdown("""
     <style>
     .stApp {
-        background-color: #1E3A8A;  /* Latar belakang biru tua */
-        color: #FFFFFF;  /* Warna font utama putih */
-        background-image: url('https://via.placeholder.com/1920x1080.png?text=Background+Image');  /* Gambar latar belakang uji coba */
-        background-repeat: no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                    url('https://www.freepik.com/free-photo/jar-filling-glass-water_4166581.htm#fromView=search&page=1&position=20&uuid=4b83bf9d-3072-47f5-acc2-dec03d225b1f&query=healthy+water');
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
+        background-repeat: no-repeat;
+        color: white !important;
     }
+    </style>
+    """, unsafe_allow_html=True)
     .block-container {
         background-color: rgba(255, 255, 255, 0.85);  /* Warna latar belakang form */
         padding: 2rem;
@@ -40,7 +40,7 @@ st.markdown(
 
 # Header
 st.markdown("""  
-    <h1 style='text-align: center; color: #FFFF00;'>💧🐧 Kalkulator Kebutuhan Air Harian Lucu 🥤🍉</h1>
+    <h1 style='text-align: center; color: #FFFF00;'>💧🐧 Kalkulator Kebutuhan Air Harian🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
@@ -53,7 +53,19 @@ Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 - ⚖ *Berat badan*  
 - 🤸 *Aktivitas fisik*  
 - ☀ *Iklim tempat tinggal*  
-""")
+
+ # Fitur Informasi tentang air dan hidrasi
+        st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
+        st.markdown("""  
+        **Kenapa Air Itu Penting?**  
+        Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
+
+        **Manfaat Minum Air**:
+        1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus. 🧠
+        2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh. 💪
+        3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil. 🌡️
+        4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini. 🤕
+        """)""")
 
 # Form input
 with st.form("form_air"):
@@ -121,19 +133,6 @@ if submitted:
 
         # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
-
-        # Fitur Informasi tentang air dan hidrasi
-        st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
-        st.markdown("""  
-        **Kenapa Air Itu Penting?**  
-        Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
-
-        **Manfaat Minum Air**:
-        1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus. 🧠
-        2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh. 💪
-        3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil. 🌡️
-        4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini. 🤕
-        """)
 
         # Tips dari pakar kesehatan
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan: 💼")
