@@ -15,21 +15,7 @@ st.markdown("""
         background-repeat: no-repeat;
         color: white !important;
     }
-    </style>
-    """, unsafe_allow_html=True)
-    .stButton>button {
-        background-color: #00BFFF;  /* Tombol biru */
-        color: white;
-        border-radius: 10px;
-    }
-    .stMarkdown p {
-        color: #FFFFFF;  /* Warna font untuk paragraf deskripsi */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
+  
 # Header
 st.markdown("""  
     <h1 style='text-align: center; color: #FFFF00;'>💧🐧 Kalkulator Kebutuhan Air Harian🥤🍉</h1>
