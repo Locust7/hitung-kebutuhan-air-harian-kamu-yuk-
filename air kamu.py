@@ -4,21 +4,23 @@ import random
 # Konfigurasi halaman
 st.set_page_config(page_title="💧 Kalkulator Kebutuhan Air Harian", layout="centered")
 
-# Tambahkan latar belakang biru tua
+# Tambahkan latar belakang biru tua dengan gambar yang valid
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-                    url('https://www.freepik.com/free-photo/jar-filling-glass-water_4166581.htm#fromView=search&page=1&position=20&uuid=4b83bf9d-3072-47f5-acc2-dec03d225b1f&query=healthy+water');
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                    url('https://images.unsplash.com/photo-1532009324734-20a7a5813719?auto=format&fit=crop&w=1400&q=80');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         color: white !important;
     }
-  
+    </style>
+""", unsafe_allow_html=True)
+
 # Header
 st.markdown("""  
-    <h1 style='text-align: center; color: #FFFF00;'>💧🐧 Kalkulator Kebutuhan Air Harian🥤🍉</h1>
+    <h1 style='text-align: center; color: #FFFF00;'>💧🐧 Kalkulator Kebutuhan Air Harian 🥤🍉</h1>
     <p style='text-align: center;'>Yuk hitung berapa banyak kamu harus minum biar nggak jadi kaktus! 🌵➡💦</p>
 """, unsafe_allow_html=True)
 
@@ -32,17 +34,20 @@ Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 - 🤸 *Aktivitas fisik*  
 - ☀ *Iklim tempat tinggal*  
 
-st.markdown("## 📚 Informasi Tentang Air dan Hidrasi 💧")
-st.markdown
+---
+
+## 📚 Informasi Tentang Air dan Hidrasi 💧
+
 **Kenapa Air Itu Penting?**  
 Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
 
 **Manfaat Minum Air**:
- 1. **Meningkatkan Konsentrasi dan Fokus**: Dehidrasi dapat menyebabkan penurunan kognitif, membuat kita mudah lelah, dan kehilangan fokus. 🧠
- 2. **Membantu Pencernaan**: Air membantu proses pencernaan dengan melarutkan nutrisi dan membantu penyerapan dalam tubuh. 💪
- 3. **Mengatur Suhu Tubuh**: Keringat dan penguapan dari kulit kita membantu menjaga suhu tubuh tetap stabil. 🌡️
- 4. **Mencegah Sakit Kepala**: Dehidrasi adalah salah satu penyebab utama sakit kepala. Pastikan tubuh cukup terhidrasi untuk mengurangi risiko ini. 🤕
-    """)
+1. **Meningkatkan Konsentrasi dan Fokus** 🧠  
+2. **Membantu Pencernaan** 💪  
+3. **Mengatur Suhu Tubuh** 🌡️  
+4. **Mencegah Sakit Kepala** 🤕
+
+""")
 
 # Form input
 with st.form("form_air"):
@@ -67,27 +72,20 @@ with st.form("form_air"):
 if submitted:
     with st.spinner("⏳ Menghitung kebutuhan air harian kamu... 🕒"):
 
-        # Dasar
         kebutuhan_dasar_min = 30 * berat_badan / 1000
         kebutuhan_dasar_max = 40 * berat_badan / 1000
 
-        # Aktivitas
         faktor_aktivitas = 1.1 if aktivitas.startswith("Ringan") else 1.25 if aktivitas.startswith("Sedang") else 1.35
-
-        # Iklim
         faktor_iklim = 1.1 if iklim.startswith("Panas") else 1.0
 
-        # Total
         kebutuhan_total_min = kebutuhan_dasar_min * faktor_aktivitas * faktor_iklim
         kebutuhan_total_max = kebutuhan_dasar_max * faktor_aktivitas * faktor_iklim
 
-        # Output
         st.success("🎉 Perhitungan selesai! 🎉")
         st.subheader("💡 Hasil Perkiraan Kamu: 🥤")
         st.write(f"- 💧 Kebutuhan dasar: *{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari*")
         st.write(f"- 🔄 Setelah penyesuaian: *{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari*")
 
-        # Catatan tambahan
         st.markdown("""  
         <div style='background-color:#e6f7ff; padding:10px; border-left:5px solid #00BFFF;'>
             📌 <strong>Catatan:</strong><br>
@@ -95,11 +93,9 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Pengingat Minum Air
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
         st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
 
-        # Rekomendasi Menu
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
         st.markdown("""  
         - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
@@ -108,10 +104,8 @@ if submitted:
         - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
         """)
 
-        # Tips lucu
         st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
 
-        # Tips dari pakar kesehatan
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan: 💼")
         st.markdown("""  
         <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
@@ -123,7 +117,6 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Fun Fact tambahan
         st.subheader("💡 Fun Fact tentang Air & Tubuhmu! 🤓")
         fakta_air = [
             "🧠 Otak manusia terdiri dari sekitar 75% air!",
@@ -146,5 +139,3 @@ st.markdown("""
     </p>
     <p style="text-align: center; font-size: 14px; color: grey;">
     <i>Design &amp; Development oleh Tim Kreatif LPK 7, 2025</i>
-    </p>
-""", unsafe_allow_html=True)
