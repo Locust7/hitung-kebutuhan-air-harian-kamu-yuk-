@@ -175,7 +175,7 @@ if submitted:
 
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan: 💼")
         st.markdown("""  
-        <div style='background-color:#fff8e1; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
+        <div style='background-color:transparent; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
             <ul>
                 <li>👩‍⚕️ <strong>Dr. Hydrina Segar</strong>: "Minumlah air sebelum merasa haus. 🌊"</li>
                 <li>🧑‍⚕️ <strong>Dr. Aqua Vita</strong>: "Selalu bawa botol air ke mana pun kamu pergi. 🚶‍♂️💧"</li>
