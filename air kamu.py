@@ -16,12 +16,12 @@ st.markdown("""
         color: white !important;
     }
     /* Mode terang */
-    .light-mode .stApp {
+    .stApp.light-mode {
         color: #333333;
     }
     
     /* Mode gelap */
-    .dark-mode .stApp {
+    .stApp.dark-mode {
         color: #f0f0f0;
     }
     
@@ -29,49 +29,49 @@ st.markdown("""
     .stApp h1, .stApp h3 {
         color: #FFFF00;
     }
-    
+
     /* Warna teks untuk input dan teks penting */
-    .light-mode .stApp {
+    .stApp.light-mode {
         color: #000000;
     }
-    .dark-mode .stApp {
+    .stApp.dark-mode {
         color: #FFFFFF;
     }
-    
+
     /* Ubah warna untuk setiap bagian teks */
-    .light-mode .stApp .perhitungan-selesai {
+    .stApp.light-mode .perhitungan-selesai {
         color: #00FFFF;
     }
-    .dark-mode .stApp .perhitungan-selesai {
+    .stApp.dark-mode .perhitungan-selesai {
         color: #00BFFF;
     }
     
-    .light-mode .stApp .catatan {
+    .stApp.light-mode .catatan {
         color: #DC143C;
     }
-    .dark-mode .stApp .catatan {
+    .stApp.dark-mode .catatan {
         color: #FF6347;
     }
 
-    .light-mode .stApp .pengingat {
+    .stApp.light-mode .pengingat {
         color: #FFA500;
     }
-    .dark-mode .stApp .pengingat {
+    .stApp.dark-mode .pengingat {
         color: #FF8C00;
     }
 
-    .light-mode .stApp .tips {
+    .stApp.light-mode .tips {
         color: #32CD32;
     }
-    .dark-mode .stApp .tips {
+    .stApp.dark-mode .tips {
         color: #98FB98;
     }
 
     /* Watermark */
-    .light-mode .stApp .watermark {
+    .stApp.light-mode .watermark {
         color: lightgrey;
     }
-    .dark-mode .stApp .watermark {
+    .stApp.dark-mode .watermark {
         color: #333333;
     }
     
