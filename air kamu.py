@@ -120,7 +120,7 @@ if submitted:
         """, unsafe_allow_html=True)
 
         # Fitur mode "Emergency Hydration"
-        is_emergency = st.checkbox("🔥 Situasi darurat (setelah olahraga/di tempat panas)?")
+        is_emergency = ("🔥 Situasi darurat (setelah olahraga/di tempat panas)?")
         st.markdown("🚨 **Penting!** Jika kamu baru selesai berolahraga atau berada di suhu yang sangat panas, kamu harus meningkatkan asupan air hingga 2 kali lipat dari kebutuhan normal!")
 
         # Pengingat
