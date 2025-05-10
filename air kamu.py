@@ -77,18 +77,19 @@ if submitted:
         kebutuhan_total_min = kebutuhan_dasar_min * faktor_aktivitas * faktor_iklim
         kebutuhan_total_max = kebutuhan_dasar_max * faktor_aktivitas * faktor_iklim
 
-        # Output Perhitungan
+        # Output Perhitungan dengan warna font yang diubah
         st.success("🎉 Perhitungan selesai! 🎉")
         st.markdown("<h3 style='color:#00FFFF;'>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
 
+        # Menampilkan hasil dengan warna font yang diubah
         st.markdown(f"""
-        <div style='color:#FFFFFF; font-size:18px;'>
+        <div style='color:#FF6347; font-size:18px;'>
         - 💧 Kebutuhan dasar: <strong>{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari</strong><br>
         - 🔄 Setelah penyesuaian: <strong>{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari</strong>
         </div>
         """, unsafe_allow_html=True)
 
-        # Catatan tambahan
+        # Catatan tambahan dengan font warna berbeda
         st.markdown("""  
         <div style='background-color:#e6f7ff; padding:10px; border-left:5px solid #00BFFF;'>
             📌 <strong>Catatan:</strong><br>
@@ -96,11 +97,11 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
 
-        # Pengingat Minum Air
+        # Pengingat Minum Air dengan warna font yang lebih jelas
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
-        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶")
+        st.warning(f"⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶", icon="⚠️")
 
-        # Rekomendasi Menu
+        # Rekomendasi Menu dengan font warna yang disesuaikan
         st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
         st.markdown("""  
         - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
@@ -135,7 +136,7 @@ if submitted:
         ]
         st.info(random.choice(fakta_air))
 
-# Watermark
+# Watermark dengan warna font berbeda
 st.markdown("""  
     <hr style="border: 1px solid #00BFFF; margin-top: 40px;">
     <p style="text-align: center; font-size: 16px; color: lightgrey;">
