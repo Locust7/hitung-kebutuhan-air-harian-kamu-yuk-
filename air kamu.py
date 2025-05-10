@@ -78,8 +78,8 @@ if submitted:
         kebutuhan_total_max = kebutuhan_dasar_max * faktor_aktivitas * faktor_iklim
 
         # Output Perhitungan dengan warna font yang diubah
-        st.success("🎉 Perhitungan selesai! 🎉")
-        st.markdown("<h3 style='color:#00FFFF;'>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color:#00FFFF;'>🎉 Perhitungan selesai! 🎉</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color:#FF6347;'>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
 
         # Menampilkan hasil dengan warna font yang diubah
         st.markdown(f"""
@@ -92,7 +92,7 @@ if submitted:
         # Catatan tambahan dengan font warna berbeda
         st.markdown("""  
         <div style='background-color:#e6f7ff; padding:10px; border-left:5px solid #00BFFF;'>
-            📌 <strong>Catatan:</strong><br>
+            <p style="color:#DC143C;"><strong>📌 Catatan:</strong></p><br>
             Nilai ini merupakan estimasi kebutuhan air harian. Kebutuhan sebenarnya bisa bervariasi tergantung kondisi kesehatan, konsumsi makanan dan minuman lain, serta cuaca harian. Konsultasikan dengan ahli gizi atau tenaga medis untuk kebutuhan spesifik.
         </div>
         """, unsafe_allow_html=True)
@@ -110,7 +110,8 @@ if submitted:
         - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
         """)
 
-        st.info("🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆")
+        # Tips: Minumlah air secara bertahap dengan warna font yang berbeda
+        st.markdown("<p style='color:#32CD32;'>🧊 Tips: Minumlah air secara bertahap sepanjang hari, jangan sekaligus kayak minum sirup waktu buka puasa! 😆</p>", unsafe_allow_html=True)
 
         st.subheader("🩺 Tips Profesional dari Pakar Kesehatan: 💼")
         st.markdown("""  
