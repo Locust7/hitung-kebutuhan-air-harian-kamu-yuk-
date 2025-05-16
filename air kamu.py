@@ -52,39 +52,39 @@ st.markdown("""
 st.markdown("""  
 Kalkulator ini membantu kamu memperkirakan kebutuhan air harian berdasarkan:
 
-- 🎂 *Umur*  
-- 🚻 *Jenis kelamin*  
-- ⚖️ *Berat badan*  
-- 🤸 *Aktivitas fisik*  
-- ☀️ *Iklim tempat tinggal*
-- 😊 *Kondisi kesehatan*
+- 🎂 Umur  
+- 🚻 Jenis kelamin  
+- ⚖ Berat badan  
+- 🤸 Aktivitas fisik  
+- ☀ Iklim tempat tinggal
+- 😊 Kondisi kesehatan
 
 ---
 ## 📚 Informasi Tentang Air dan Hidrasi 💧
 
-**Kenapa Air Itu Penting?🤷‍♀️🤷‍♂️**  
+*Kenapa Air Itu Penting?🤷‍♀🤷‍♂*  
 Air adalah komponen utama tubuh manusia yang mendukung berbagai fungsi vital, seperti mengatur suhu tubuh, mendukung proses pencernaan, serta menjaga keseimbangan elektrolit. Tanpa cukup air, tubuh kita tidak dapat berfungsi dengan optimal.
 
-**Manfaat Minum Air😲**:
-1. **Meningkatkan Konsentrasi dan Fokus** 🧠  
-2. **Membantu Pencernaan** 💪  
-3. **Mengatur Suhu Tubuh** 🌡️  
-4. **Mencegah Sakit Kepala** 🤕
+*Manfaat Minum Air😲*:
+1. *Meningkatkan Konsentrasi dan Fokus* 🧠  
+2. *Membantu Pencernaan* 💪  
+3. *Mengatur Suhu Tubuh* 🌡  
+4. *Mencegah Sakit Kepala* 🤕
 
 """)
 
 # Form input
 umur = st.number_input("🎂 Umur (tahun)", min_value=0, max_value=120, value=25)
 jenis_kelamin = st.selectbox("🚻 Jenis Kelamin", ["👦 Laki-laki", "👧 Perempuan"])
-berat_badan = st.number_input("⚖️ Berat Badan (kg)", min_value=1.0, max_value=200.0, value=60.0)
+berat_badan = st.number_input("⚖ Berat Badan (kg)", min_value=1.0, max_value=200.0, value=60.0)
 aktivitas = st.selectbox("🤸 Tingkat Aktivitas Fisik", [
-    "Ringan (pekerjaan ringan) 🐌",
-    "Sedang (Pekerjaan sedang) 🏃‍♂️",
-    "Berat (Pekerjaan berat seperti berolahraga) 🏋️"
+    "Ringan (pekerjaan ringan, hanya kuliah teori) 🐌",
+    "Sedang (kuliah sedikit praktik) 🏃‍♂",
+    "Berat (kuliah full praktik, lanjut laprak) 🏋"
 ])
-iklim = st.selectbox("☀️ Iklim Tempat Tinggal", [
+iklim = st.selectbox("☀ Iklim Tempat Tinggal", [
     "Sedang/Dingin 🧣",
-    "Panas (tropis, kering, atau sangat lembap) 🏖️"
+    "Panas (tropis, kering, atau sangat lembap) 🏖"
 ])
 
 # Kondisi Kesehatan
@@ -94,7 +94,7 @@ kondisi_kesehatan = st.selectbox("😊Apakah kamu memiliki kondisi kesehatan yan
 # Faktor iklim: memberikan saran minuman berdasarkan suhu tempat tinggal
 if iklim == "Sedang/Dingin 🧣":
     saran_minuman = "☕ Teh hangat atau sup bisa menjadi pilihan yang menyegarkan! Jangan lupa tetap minum air putih."
-elif iklim == "Panas (tropis, kering, atau sangat lembap) 🏖️":
+elif iklim == "Panas (tropis, kering, atau sangat lembap) 🏖":
     saran_minuman = "🥥 Air kelapa, infused water dengan lemon, atau air putih dingin untuk menjaga tubuh tetap terhidrasi!"
 
 # Menampilkan saran minuman berdasarkan iklim
@@ -115,13 +115,13 @@ if submitted:
         # Menyesuaikan kebutuhan berdasarkan kondisi kesehatan
         if kondisi_kesehatan == "Diabetes":
             faktor_kesehatan = 1.2  # Tambahkan faktor untuk kondisi diabetes
-            st.warning("⚠️ Kondisi Diabetes membutuhkan hidrasi yang lebih tinggi! Pastikan untuk minum cukup air.")
+            st.warning("⚠ Kondisi Diabetes membutuhkan hidrasi yang lebih tinggi! Pastikan untuk minum cukup air.")
         elif kondisi_kesehatan == "Hipertensi":
             faktor_kesehatan = 1.1  # Tambahkan faktor untuk kondisi hipertensi
-            st.warning("⚠️ Hipertensi memerlukan perhatian khusus terhadap hidrasi. Pastikan tidak dehidrasi.")
+            st.warning("⚠ Hipertensi memerlukan perhatian khusus terhadap hidrasi. Pastikan tidak dehidrasi.")
         elif kondisi_kesehatan == "Penyakit ginjal":
             faktor_kesehatan = 1.3  # Tambahkan faktor untuk kondisi ginjal
-            st.warning("⚠️ Penyakit ginjal memerlukan lebih banyak perhatian terhadap hidrasi. Minumlah air secara bertahap.")
+            st.warning("⚠ Penyakit ginjal memerlukan lebih banyak perhatian terhadap hidrasi. Minumlah air secara bertahap.")
         else:
             faktor_kesehatan = 1.0  # Tidak ada faktor khusus jika kondisi kesehatan tidak ada
             
@@ -134,7 +134,7 @@ if submitted:
         st.markdown("<h3>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
         st.markdown(f"""
         <div class="perhitungan-selesai">
-        - 🔄 Kebutuhan air harian kamu adalah: <strong>{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari</strong>
+        - 🔄 Kebutuhan Air Harian kamu adalah: <strong>{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari</strong>
         </div>
         """, unsafe_allow_html=True)
 
@@ -148,19 +148,19 @@ if submitted:
 
         # Fitur mode "Emergency Hydration"
         is_emergency = ("🔥 Situasi darurat🫨 (setelah olahraga/di tempat panas)?")
-        st.markdown("🚨 **Penting!** Jika kamu baru selesai berolahraga atau berada di suhu yang sangat panas, kamu harus meningkatkan asupan air hingga 2 kali lipat dari kebutuhan normal!")
+        st.markdown("🚨 *Penting!* Jika kamu baru selesai berolahraga atau berada di suhu yang sangat panas, kamu harus meningkatkan asupan air hingga 2 kali lipat dari kebutuhan normal!")
 
         # Pengingat
         reminder_frequency = st.slider("⏰ Pengingat Minum Air (dalam menit)", min_value=15, max_value=120, value=60, step=15)
         st.markdown(f"<p class='pengingat'>⏰ Setiap {reminder_frequency} menit, kamu disarankan untuk minum air segelas! 🍶</p>", unsafe_allow_html=True)
 
         # Menu rekomendasi
-        st.subheader("🍽️ Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
+        st.subheader("🍽 Rekomendasi Menu untuk Hidrasi yang Lebih Baik: 🥗🍉")
         st.markdown("""
-        - 🍉 **Buah-buahan**: Semangka, melon, dan jeruk kaya akan kandungan air!
-        - 🥗 **Sayuran Hijau**: Selada, timun, dan bayam juga membantu tubuh tetap terhidrasi.
-        - 🧃 **Minuman Sehat**: Teh herbal atau infused water dengan irisan lemon atau mentimun.
-        - 🍶 **Air Kelapa**: Menyegarkan dan penuh elektrolit alami!
+        - 🍉 *Buah-buahan*: Semangka, melon, dan jeruk kaya akan kandungan air!
+        - 🥗 *Sayuran Hijau*: Selada, timun, dan bayam juga membantu tubuh tetap terhidrasi.
+        - 🧃 *Minuman Sehat*: Teh herbal atau infused water dengan irisan lemon atau mentimun.
+        - 🍶 *Air Kelapa*: Menyegarkan dan penuh elektrolit alami!
         """)
 
         # Tips
@@ -171,9 +171,9 @@ if submitted:
         st.markdown("""
         <div style='background-color:transparent; padding:15px; border-left:5px solid #f4c430; border-radius:10px;'>
             <ul>
-                <li>👩‍⚕️: "Minumlah air sebelum merasa haus. 🌊"</li>
-                <li>🧑‍⚕️: "Selalu bawa tumbler air ke mana pun kamu pergi. 🚶‍♂️💧"</li>
-                <li>👨‍⚕️: "Perhatikan warna urinmu. Urin gelap = kurang minum. 🔍🚽"</li>
+                <li>👩‍⚕: "Minumlah air sebelum merasa haus. 🌊"</li>
+                <li>🧑‍⚕: "Selalu bawa tumbler air ke mana pun kamu pergi. 🚶‍♂💧"</li>
+                <li>👨‍⚕: "Perhatikan warna urinmu. Urin gelap = kurang minum. 🔍🚽"</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
