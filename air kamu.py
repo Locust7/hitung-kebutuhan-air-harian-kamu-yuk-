@@ -78,9 +78,9 @@ umur = st.number_input("🎂 Umur (tahun)", min_value=0, max_value=120, value=25
 jenis_kelamin = st.selectbox("🚻 Jenis Kelamin", ["👦 Laki-laki", "👧 Perempuan"])
 berat_badan = st.number_input("⚖️ Berat Badan (kg)", min_value=1.0, max_value=200.0, value=60.0)
 aktivitas = st.selectbox("🤸 Tingkat Aktivitas Fisik", [
-    "Ringan (pekerjaan ringan, hanya kuliah teori) 🐌",
-    "Sedang (kuliah sedikit praktik) 🏃‍♂️",
-    "Berat (kuliah full praktik, lanjut laprak) 🏋️"
+    "Ringan (pekerjaan ringan) 🐌",
+    "Sedang (Pekerjaan sedang) 🏃‍♂️",
+    "Berat (Pekerjaan berat seperti berolahraga) 🏋️"
 ])
 iklim = st.selectbox("☀️ Iklim Tempat Tinggal", [
     "Sedang/Dingin 🧣",
@@ -134,8 +134,7 @@ if submitted:
         st.markdown("<h3>💡 Hasil Perkiraan Kamu: 🥤</h3>", unsafe_allow_html=True)
         st.markdown(f"""
         <div class="perhitungan-selesai">
-        - 💧 Kebutuhan dasar: <strong>{kebutuhan_dasar_min:.2f} - {kebutuhan_dasar_max:.2f} L/hari</strong><br>
-        - 🔄 Setelah penyesuaian: <strong>{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari</strong>
+        - 🔄 Kebutuhan air harian kamu adalah: <strong>{kebutuhan_total_min:.2f} - {kebutuhan_total_max:.2f} L/hari</strong>
         </div>
         """, unsafe_allow_html=True)
 
